@@ -8,9 +8,9 @@ Finally it is a hope to be a modular design for dotfiles, providing a stable sha
 
 ## Install
 
-`$ ./install.sh` from within the dotfiles repository, a backup will be created in ./backup/EPOC_TIME
+`$ ./install.sh` from within the dotfiles repository, a backup will be created in `./backup/EPOC_TIME`
 
-`$ ./restore.sh EPOC_TIME` can be used with and EPOC_TIME in the backup directory
+`$ ./restore.sh EPOC_TIME` can be used with an `EPOC_TIME` in the backup directory
 
 ## Notes on modular design
 

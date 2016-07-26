@@ -22,13 +22,14 @@ function backup {
 }
 
 # simlink takes in first a file to link `$1`
-# and second a target name `$2`
-# simlink will create the parent directories needed
-# and simlink the file
+# and second a full path representing the target name `$2`
+# simlink will create parent directories if needed
+# and simlink the file to the target name
 function simlink {
-	base=$(basename $PWD)
-	basedir=${PWD%$base}
+	base=$(basename $2)
+	basedir=${2%$base}
 	
+	echo "mkdir -p $basedir"
 	mkdir -p $basedir
 	ln -s -f -i $1 $2
 }
