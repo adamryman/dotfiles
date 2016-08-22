@@ -1,0 +1,8 @@
+# It seems that xubuntu's login flow does not read .xinitrc
+# it does read this file however, so some stuff is going here
+
+# macbook dpi
+# xrandr --dpi 210
+#xrandr --dpi 110
+xset r rate 250 50
+

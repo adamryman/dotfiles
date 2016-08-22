@@ -1,0 +1,13 @@
+set editing-mode vi 
+
+#set show-all-if-ambiguous on
+# Tab menu completion 
+# http://unix.stackexchange.com/questions/55203/bash-autocomplete-first-list-files-then-cycle-through-them
+Tab:menu-complete
+"\e[Z":menu-complete-backward
+
+## bash vim command mode search completion
+## http://vim.wikia.com/wiki/Use_vi_shortcuts_in_terminal
+set keymap vi-command
+"j": history-search-forward
+"k": history-search-backward
