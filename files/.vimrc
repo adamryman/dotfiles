@@ -1,6 +1,10 @@
 
 " Be vim instead of vi
 set nocompatible
+
+" Use .vim/ftplugins for vim filetupe config
+filetype plugin indent on
+
 if $DOTFILES_vundle == '1'
 " Vundle {{{ ----------------------------------------------------------------
 " ----------------------------------------------------------------------------
