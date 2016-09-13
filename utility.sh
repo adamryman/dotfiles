@@ -41,9 +41,11 @@ function simlink {
 	# If -f flag, non interactive
 	if [ "$f_flag" = 'true' ];
 	then
-		ln -s -f -n $1 $2
+		rm -r $2
+		ln -s -f $1 $2
 	else
-		ln -s -f -n -i $1 $2
+		# Fuck, if this is a directory then this will not work. I should move to a better language. Need to add a prompt function
+		ln -s -f -i $1 $2
 	fi
 }
 
