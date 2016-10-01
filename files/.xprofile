@@ -1,8 +1,16 @@
-# It seems that xubuntu's login flow does not read .xinitrc
-# it does read this file however, so some stuff is going here
+# .xprofile is run in xubuntu's login flow
+# .xinitrc is not read
+# therefore there are a few commands in here
 
 # macbook dpi
 # xrandr --dpi 210
-#xrandr --dpi 110
+# xrandr --dpi 110
+
+# set key repeat
 xset r rate 250 50
 
+# switches caps and ctrl
+# and changes the windows key to be another alt key
+# to find out more check man pages and 'man xkeyboard-config'
+setxkbmap -option caps:ctrl_modifier
+setxkbmap -option altwin:alt_win
