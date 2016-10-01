@@ -23,15 +23,35 @@ set focuscontent
 map E :emenu File.New Private Window<Return>
 
 
-
 " ### LEADER ###
 " In vimperator, space is not normally mappable, I figured out how to change it
 " and documented it here https://github.com/vimperator/vimperator-labs/issues/10
+" IMPROVED https://github.com/vimperator/vimperator-labs/issues/10#issuecomment-158256240
+
+" To Enable map <Space>
+js <<EOM
+  window.addEventListener('keypress',function (event) {
+    var code=event.charCode;
+    if ((liberator.mode === modes.INSERT && modes.extended === modes.MENU)
+    ||(liberator.mode ==modes.NORMAL && code==32)
+    ||(liberator.mode ==modes.COMMAND_LINE && code !=32)){
+      let map = mappings.get(liberator.mode, events.toString(event));
+      if (map) {
+        event.preventDefault();
+        event.stopPropagation();
+        map.execute();
+      }
+    }
+  },false);
+EOM
+
+" My Customization
 let mapleader="\"
-map <space> <leader>
+map <Space> <Leader>
+
 
 "Remove search highlighting quickly
-map <leader>/ :nohlsearch<Return>
+map <Leader>/ :nohlsearch<Return>
 
 
 " ##### FULL SCREEN HIDING #####

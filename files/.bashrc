@@ -208,7 +208,13 @@ export GOPATH=$projects/go
 export GOCODE=$GOPATH/src
 
 # Add go bins to path
-export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+export PATH=$PATH:$GOPATH/bin:usr/local/go/bin
+
+# add pip bins to path
+export PATH=$PATH:$HOME/.local/bin
+
+# add screenlayouts
+export PATH=$PATH:/$HOME/.screenlayout
 
 # }}} 
 # Fold on opening for organization
