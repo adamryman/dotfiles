@@ -22,8 +22,9 @@ function basedotfilesinstall {
 	files[20]=".vimrc"
 	files[21]=".vim/colors"
 	files[22]=".vim/ftplugin"
+
 	# nvim
-	files[22]=".config/nvim"
+	files[23]=".config/nvim"
 
 	files[30]=".vimperatorrc"
 
