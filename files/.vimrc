@@ -96,11 +96,15 @@ set showmatch
 " }}}
 " Windowing {{{ -----------------------------------------------------------
 
-"Keybinding hotkeys for switching windows
+" Keybinding hotkeys for switching windows
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
+" Change how splits work
+set splitbelow
+set splitright
 
 " }}} 
 
@@ -286,5 +290,12 @@ let g:ag_highlight=1
 au BufNewFile,BufRead *.gotemplate set filetype=go
 au BufNewFile,BufRead *.gotemplate let g:go_fmt_fail_silently = 1
 " }}}
+" nvim {{{ ----------------------------------------------
+if $DOTFILES_nvim == '1'
+tnoremap <Esc> <C-\><C-n>
+let g:terminal_scrollback_buffer_size = 2147483647
+endif
+" }}}
+"
 " Fold on opening for organization
 " vim:foldmethod=marker:foldlevel=0
