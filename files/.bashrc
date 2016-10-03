@@ -210,7 +210,7 @@ fi
 # Path {{{ -----------------------------------------------------------
 
 # Add go bins to path
-export PATH=$PATH:$GOPATH/bin:usr/local/go/bin
+export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 
 # add pip bins to path
 export PATH=$PATH:$HOME/.local/bin
