@@ -104,7 +104,7 @@ map <C-l> <C-w>l
 
 " }}} 
 
-" Personal {{{ -----------------------------------------------------------
+" General Personal {{{ -------------------------------------------------
 " Lets me see those tabs and spaces
 set listchars=tab:>\ ,space:#
 
@@ -137,7 +137,7 @@ set incsearch
 " or text created before entering inset mode (start).
 " This command makes backspace behave like most editors in insert mode
 set backspace=indent,eol,start
-
+" }}}
 " Leader {{{ --------------------------------------------------------------
 " change my leader to space, using map allows me to see it with a \ in the
 " Also space space to leader leader for DOUBLE COMMANDS
@@ -281,6 +281,10 @@ set completeopt -=preview
 let g:ag_highlight=1
 
 " }}}
+" truss {{{ ----------------------------------------------
+" Set .gotemplate to go file for syntax, but let it fail as it is a template
+au BufNewFile,BufRead *.gotemplate set filetype=go
+au BufNewFile,BufRead *.gotemplate let g:go_fmt_fail_silently = 1
 " }}}
 " Fold on opening for organization
 " vim:foldmethod=marker:foldlevel=0
