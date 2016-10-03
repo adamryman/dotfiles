@@ -294,6 +294,9 @@ au BufNewFile,BufRead *.gotemplate let g:go_fmt_fail_silently = 1
 if $DOTFILES_nvim == '1'
 tnoremap <Esc> <C-\><C-n>
 let g:terminal_scrollback_buffer_size = 2147483647
+
+" Only typed actions casue redraw
+set lazyredraw
 endif
 " }}}
 "
