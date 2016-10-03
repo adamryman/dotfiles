@@ -1,6 +1,9 @@
 " Build go files quickly
 map <leader>b :w<Return>:GoBuild<Return>
 
+" Run test
+map <leader><leader>b :w<Return>:GoTest<Return>
+
 " Lets get those imports
 map <leader>i :GoImports<Return>
 

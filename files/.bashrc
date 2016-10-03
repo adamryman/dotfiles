@@ -171,6 +171,13 @@ if which hub > /dev/null; then
 fi
 
 # }}} 
+# Exports {{{ -----------------------------------------------------------
+export projects=$HOME/projects
+
+# Golang
+export GOPATH=$projects/go
+export GOCODE=$GOPATH/src
+# }}} 
 # Aliases {{{ -----------------------------------------------------------
 # some more ls aliases
 alias l='ls -1'
@@ -194,18 +201,13 @@ alias note="vim $(date +%s).md"
 
 alias clean='make clean'
 
+
 # Local Alias definitions.
 if [ -f ~/.config/dotfiles/bash_aliases.sh ]; then
     . ~/.config/dotfiles/bash_aliases.sh
 fi
 # }}} 
 # Path {{{ -----------------------------------------------------------
-
-export projects=$HOME/projects
-
-# GOOOOOOOO
-export GOPATH=$projects/go
-export GOCODE=$GOPATH/src
 
 # Add go bins to path
 export PATH=$PATH:$GOPATH/bin:usr/local/go/bin
