@@ -1,5 +1,7 @@
 URxvt.perl-lib: /usr/lib/urxvt/perl
 URxvt.perl-ext-common: clipboard,font-size,matcher,url-select,keyboard-select
+# Copy/paste and url select require xsel
+# TODO: Switch to xclip
 URxvt.keysym.C-C:    perl:clipboard:copy
 URxvt.keysym.C-V:    perl:clipboard:paste
 URxvt.iso14755: False

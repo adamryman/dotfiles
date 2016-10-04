@@ -14,3 +14,7 @@ sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
 sudo update-alternatives --config vi
 sudo update-alternatives --config vim
 sudo update-alternatives --config editor
+
+# Needed for urxvt copy and url select
+# TODO switch all uses to xclip
+sudo apt install -y xsel
