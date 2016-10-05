@@ -32,6 +32,7 @@ function basedotfilesinstall {
 	files[41]=".config/i3status"
 
 	files[50]=".config/fontconfig"
+	files[51]=".fonts"
 	
 	files[60]=".xinitrc"
 
