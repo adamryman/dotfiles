@@ -5,7 +5,7 @@ sudo apt install software-properties-common
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update
 
-sudo apt install -y git i3 xfonts-terminus rxvt-unicode-256color keynav xclip python-dev python-pip python3-pip python3-dev neovim firefox tmux htop redshift scrot silversearcher-ag arandr cmake build-essential curl
+sudo apt install -y git i3 xfonts-terminus rxvt-unicode-256color keynav xclip python-dev python-pip python3-pip python3-dev neovim firefox tmux htop redshift scrot silversearcher-ag arandr cmake build-essential curl feh
 
 pip3 install neovim
 
