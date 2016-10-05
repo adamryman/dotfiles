@@ -55,6 +55,7 @@ Plugin 'solars/github-vim'
 
 " Tagbar, for golang
 Plugin 'majutsushi/tagbar'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -292,7 +293,9 @@ au BufNewFile,BufRead *.gotemplate let g:go_fmt_fail_silently = 1
 " }}}
 " nvim {{{ ----------------------------------------------
 if $DOTFILES_nvim == '1'
-tnoremap <Esc> <C-\><C-n>
+" Press escape twice quicky to get into nvim normal mode
+" press escape once to get into bash set -o vi normal mode
+tnoremap <Esc><Esc> <C-\><C-n>
 let g:terminal_scrollback_buffer_size = 2147483647
 
 " Only typed actions casue redraw
