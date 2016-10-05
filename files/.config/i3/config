@@ -37,8 +37,12 @@ floating_modifier Mod1
 # start a terminal from the same path as the current terminal
 bindsym Mod1+Shift+Return exec urxvt -cd "`xcwd`"
 
-# start firefox
-bindsym Mod1+backslash exec firefox
+# start qutebrowser. The coolest browser ever:
+# https://github.com/The-Compiler/qutebrowser
+bindsym Mod1+backslash exec qutebrowser
+
+# start firefox as backup
+bindsym Mod1+bracketright exec firefox
 
 # kill focused window
 bindsym Mod1+Shift+q kill
