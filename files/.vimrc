@@ -212,7 +212,10 @@ map <leader><leader><enter> :let @/ = ""<CR>
 " Yank current file path to x clipboard
 map <leader><leader>y :let @+ = expand("%:p")<CR>
 
-map <leader>y :silent call system('xclip -selection clipboard -in', @0)<CR>
+" Call xclip to put yank buffer into system clipboard, yank first if in visual
+" mode
+nmap <leader>y :silent call system('xclip -selection clipboard -in', @0)<CR>
+vmap <leader>y y:silent call system('xclip -selection clipboard -in', @0)<CR>
 
 " Quick system buffer put / clipboard put
 map <leader>p "+p
