@@ -111,7 +111,7 @@ set splitright
 
 " General Personal {{{ -------------------------------------------------
 " Lets me see those tabs and spaces
-set listchars=tab:>\ ,space:#
+set listchars=tab:>\ ,space:#,trail:‽
 
 " Line breaks look like this
 set linebreak

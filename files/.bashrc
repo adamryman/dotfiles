@@ -7,6 +7,13 @@ if [ -d "$HOME/bin" ]; then
     PATH=$HOME/bin:$PATH
 fi
 # }}}
+# Exports {{{ -----------------------------------------------------------
+export projects=$HOME/projects
+
+# Golang
+export GOPATH=$projects/go
+export GOCODE=$GOPATH/src
+# }}}
 # History {{{ -----------------------------------------------------------
 
 # Append to the history file, don't overwrite it
@@ -142,6 +149,17 @@ function swap {
 	swap_command="${@}"
 	"${swap_command}" & disown; sleep 0.6; exit
 }
+
+# go to the top dir of a git project
+function cdgit {
+	repopath=$(git rev-parse --show-toplevel 2> /dev/null)
+	cd $repopath
+}
+
+# go to the go package
+function cdgo {
+	cd $GOPATH/src/"$1"
+}
 # }}} 
 # Colors {{{ -----------------------------------------------------------
 
@@ -171,17 +189,16 @@ if which hub > /dev/null; then
 fi
 
 # }}} 
-# Exports {{{ -----------------------------------------------------------
-export projects=$HOME/projects
-
-# Golang
-export GOPATH=$projects/go
-export GOCODE=$GOPATH/src
-# }}} 
 # Aliases {{{ -----------------------------------------------------------
 # some more ls aliases
 alias l='ls -1'
 alias la='ls -la'
+# Prints permissions in octal number format
+# 664 -rw-rw-r-- 1 adamryman adamryman 6529 Oct 13 16:41 .bashrc
+alias lch="ls -l | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/) \
+             *2^(8-i));if(k)printf(\"%0o \",k);print}'"
+alias lach="la -l | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/) \
+             *2^(8-i));if(k)printf(\"%0o \",k);print}'"
 
 # Less with color and cancling if it will not scroll the terminal
 alias lesss='less -XFR'
