@@ -185,34 +185,37 @@ bar {
         status_command i3status
 }
 
-# xfce4 network manager, gives little wifi app on bottom bar
-exec --no-startup-id nm-applet
-
-
-# touchpad settings Mac style scrolling, both horizontal and vertial
-# also remove scroll on the edge
+# touchpad settings 
+# Mac style scrolling, both horizontal and vertial
 exec --no-startup-id synclient VertTwoFingerScroll=1 HorizTwoFingerScroll=1
 exec --no-startup-id synclient VertScrollDelta=-111 HorizScrollDelta=-111
 exec --no-startup-id synclient VertEdgeScroll=0
-
-
+# also remove scroll on the edge
 exec --no-startup-id synclient AreaLeftEdge=600
 exec --no-startup-id synclient AreaRightEdge=2400
 
-
+# xfce4 network manager, gives little wifi app on bottom bar
+exec --no-startup-id nm-applet
 
 # Set Background image
 exec --no-startup-id feh --bg-fill $HOME/.config/i3/tree.jpg
 
+# bind any key, used for brightness
 exec --no-startup-id xbindkeys
 
+# Notifications 
 exec --no-startup-id dunst
 
 exec --no-startup-id dropboxd
 
+# Like flux
 exec --no-startup-id redshift
 
 # set key repeat
 exec --no-startup-id xset r rate 250 50
+
+# Use mouse with ctrl+;
+exec --no-startup-id keynav
+
 
 focus_follows_mouse no
