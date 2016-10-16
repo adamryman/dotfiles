@@ -5,8 +5,18 @@ sudo apt install software-properties-common
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update
 
-sudo apt install -y git i3 xfonts-terminus rxvt-unicode-256color keynav xclip python-dev python-pip python3-pip python3-dev neovim firefox tmux htop redshift scrot silversearcher-ag arandr cmake build-essential curl feh
+# neovim 
+sudo apt install -y python-dev python-pip python3-pip python3-dev neovim
 
+# cli
+sudo apt install -y git xfonts-terminus xclip tmux htop silversearcher-ag \
+	cmake build-essential curl keychain
+
+# gui
+sudo apt install -y xserver-xorg-core i3 rxvt-unicode-256color keynav firefox \
+	redshift scrot arandr cmake feh keepassx
+
+# python binding
 pip3 install neovim
 
 sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
