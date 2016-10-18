@@ -32,3 +32,6 @@ nmap <leader><leader>0 :silent PlayMeOff /home/adamryman/projects/go/src/github.
 
 nmap <leader><leader>1  :silent call system('cp --remove-destination /home/adamryman/projects/go/src/github.com/TuneLab/gob/demo/add/.plans/gofiles/service.go /home/adamryman/projects/go/src/github.com/TuneLab/gob/demo/add/service/server/service.go')<Return><ESC>
 
+" Clear goRawString so ` template `  is syntax highlighted. Re-source to undo
+" (<leader>s)
+noremap <leader><leader>; :syntax clear goRawString<CR>
