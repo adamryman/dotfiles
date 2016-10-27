@@ -9,7 +9,7 @@ sudo apt-cache policy docker-engine
 
 # Only ubuntu
 sudo apt update
-sudo apt install linux-image-extra-$(uname -r) linux-image-extra-virtual
+sudo apt install -y linux-image-extra-$(uname -r) linux-image-extra-virtual
 
 sudo apt update
 sudo apt install docker-engine
