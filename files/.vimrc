@@ -142,6 +142,9 @@ set incsearch
 " or text created before entering inset mode (start).
 " This command makes backspace behave like most editors in insert mode
 set backspace=indent,eol,start
+
+" Turn Shift-Tab into Ctrl-P, like Tab is Ctrl-N
+noremap <S-Tab> <C-P>
 " }}}
 " Leader {{{ --------------------------------------------------------------
 " change my leader to space, using map allows me to see it with a \ in the
