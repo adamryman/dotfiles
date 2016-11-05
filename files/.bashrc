@@ -50,6 +50,29 @@ if [ -f /etc/bash_completion ]; then
  . /etc/bash_completion
 fi
 # }}}
+# Colors {{{ -----------------------------------------------------------
+
+# Applications that check the TERM var will see 256 color support
+export TERM="xterm-256color"
+# case "$TERM" in
+    # xterm-color) color_prompt=yes;;
+# esac
+
+# This gives colors to tree and ls
+if [ -x /usr/bin/dircolors ]; then
+	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+
+alias ls="ls --color=auto --group-directories-first"
+
+
+# to list possible colors
+function all_colors {
+	for C in {0..255}; do  tput setab $C;  echo -n "$C "; done
+	echo
+}
+
+# }}}
 # PS1 {{{ -----------------------------------------------------------
 # Defining colors for prompt
 # Leland Batey's
@@ -65,11 +88,6 @@ purple='\e[0;35m'
 reset='\e[0m'
 
 # My Colors
-# to list possible colors
-function all_colors {
-	for C in {0..255}; do  tput setab $C;  echo -n "$C "; done
-	echo
-}
 
 # color = "\e[38;5;XXXm
 # where XXX is the color code
@@ -127,7 +145,7 @@ line_join="\[$yellow\]@\[$reset\]"
 
 export PS1="$user$line_join$host\n$path $cur_branch $cur_repo\n$ "
 # }}} 
-# Functions {{{ -----------------------------------------------------------
+# More Functions {{{ -----------------------------------------------------------
 
 # This function allows to to compare two files using git's diff config
 # These files do not need to be in git repos
@@ -161,12 +179,6 @@ function cdgo {
 	cd $GOPATH/src/"$1"
 }
 # }}} 
-# Colors {{{ -----------------------------------------------------------
-
-alias ls="ls --color=auto --group-directories-first"
-export TERM="xterm-color"
-
-# }}}
 # Misc {{{ -----------------------------------------------------------
 
 # bash vim mode
