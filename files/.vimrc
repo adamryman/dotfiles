@@ -56,6 +56,12 @@ Plugin 'solars/github-vim'
 " Tagbar, for golang
 Plugin 'majutsushi/tagbar'
 
+" Can use with ag
+" if executable('ag')
+"   let g:ackprg = 'ag --vimgrep'
+" endif
+Plugin 'mileszs/ack.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -238,6 +244,7 @@ map <leader>cd <plug>NERDCommenterToggle
 
 " }}}
 " Vundler Plugin Configs {{{ ----------------------------------------------
+if $DOTFILES_vundle == '1'
 
 " airline with powerline fonts, must be installed
 " https://github.com/vim-airline/vim-airline
@@ -287,11 +294,16 @@ let g:delimitMate_expand_cr=1
 "Remove ycm preview
 set completeopt -=preview
 
-" Ag settings
+" Awk Ag settings
 " LAg uses the location list
-let g:ag_highlight=1
+"let g:ag_highlight=1
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+let g:ackhighlight = 1
+"g:ackpreview = 1
 
-" }}}
+endif " }}}
 " truss {{{ ----------------------------------------------
 " Set .gotemplate to go file for syntax, but let it fail as it is a template
 au BufNewFile,BufRead *.gotemplate set filetype=go
