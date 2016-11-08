@@ -168,7 +168,7 @@ function swap {
 	"${swap_command}" & disown; sleep 0.6; exit
 }
 
-# go to the top dir of a git project
+# cd to the top dir of a git project
 function cdgit {
 	repopath=$(git rev-parse --show-toplevel 2> /dev/null)
 	cd $repopath
