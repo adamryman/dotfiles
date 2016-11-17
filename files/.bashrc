@@ -178,6 +178,10 @@ function cdgit {
 function cdgo {
 	cd $GOPATH/src/"$1"
 }
+
+function gitnow {
+	GIT_COMMITTER_DATE="`date`" git commit --amend --date "`date`";
+}
 # }}} 
 # Misc {{{ -----------------------------------------------------------
 
@@ -230,6 +234,10 @@ alias note="vim $(date +%s).md"
 
 alias clean='make clean'
 
+# Gooooo
+# q.Q ->  https://github.com/y0ssar1an/q
+alias qq=". $GOPATH/src/github.com/y0ssar1an/q/q.sh"
+alias rmqq="rm /tmp/q"
 
 # Local Alias definitions.
 if [ -f ~/.config/dotfiles/bash_aliases.sh ]; then
