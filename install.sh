@@ -16,8 +16,9 @@ function basedotfilesinstall {
 	# It must be at least one directory deep	
 	files[0]=".config/dotfiles/enabled.sh"
 
-	files[10]=".bashrc"
-	files[11]=".inputrc"
+	files[10]=".bash_profile"
+	files[11]=".bashrc"
+	files[12]=".inputrc"
 
 	files[20]=".vimrc"
 	files[21]=".vim/colors"
