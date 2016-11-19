@@ -11,3 +11,8 @@ Tab:menu-complete
 set keymap vi-command
 "j": history-search-forward
 "k": history-search-backward
+
+# Add a slash when autocompleting symlink directories
+# http://superuser.com/a/271677
+$include /etc/inputrc
+set mark-symlinked-directories on
