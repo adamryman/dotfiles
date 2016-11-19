@@ -12,9 +12,9 @@ sudo apt install -y python-dev python-pip python3-pip python3-dev neovim
 sudo apt install -y git xfonts-terminus xclip tmux htop silversearcher-ag \
 	cmake build-essential curl keychain
 
-# gui
+# gui / X
 sudo apt install -y xserver-xorg-core i3 rxvt-unicode-256color keynav firefox \
-	redshift scrot arandr cmake feh keepassx
+	redshift scrot arandr cmake feh keepassx autocutsel
 
 # python binding
 pip3 install neovim
