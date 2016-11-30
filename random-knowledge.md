@@ -5,7 +5,7 @@
 du -sh * | sort -hr
 ```
 
-## Cool emojis / kaomoji
+### Cool emojis / kaomoji
 ```
 // gopher!
 \ʕ◔ϖ◔ʔ/
@@ -13,3 +13,20 @@ du -sh * | sort -hr
 // shrug
  ¯\_(ツ)_/¯
 ```
+
+# fonts on linux
+
+`sudo fc-cache -f -v`
+`fc-list`
+
+Check out `etc/fonts/fonts.conf` for all the info.
+
+
+# Golang
+
+### Gofonts
+
+If you download the fonts at: `git clone https://go.googlesource.com/image`
+then the fonts will be in `image/font/gofont/ttfs` and the names will be
+`Go-Mono.ttf Go-Bold.ttf etc...` BUT the actual names of the fonts do not have
+dashes in them when you add them to things.
