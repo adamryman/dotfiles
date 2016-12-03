@@ -2,7 +2,7 @@
 source $HOME/.config/dotfiles/enabled.sh
 # }}}
 # Clipboard {{{ -----------------------------------------------------
-if [ "$DOTFILES_X" = "1" ]
+if [ "$DOTFILES_X" = "1" ]; then
 	autocutsel & autocutsel -s PRIMARY &
 fi
 # }}}
