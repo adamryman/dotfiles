@@ -13,7 +13,6 @@ du -sh * | sort -hr
 // shrug
  ¯\_(ツ)_/¯
 ```
-
 # fonts on linux
 
 `sudo fc-cache -f -v`
@@ -30,3 +29,12 @@ If you download the fonts at: `git clone https://go.googlesource.com/image`
 then the fonts will be in `image/font/gofont/ttfs` and the names will be
 `Go-Mono.ttf Go-Bold.ttf etc...` BUT the actual names of the fonts do not have
 dashes in them when you add them to things.
+=======
+## Github
+
+Add `w=1` to a github diff url query and get the diff without showing whitespace diffs
+
+
+## vim
+
+Get spelling suggestions with `i_Ctrl-X_Crtl_K`
