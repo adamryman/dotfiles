@@ -7,3 +7,5 @@ backup/*
 [._]s[a-w][a-z]
 # session
 Session.vim
+
+files/.config/dotfiles/enabled.sh
