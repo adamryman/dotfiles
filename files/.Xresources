@@ -1,4 +1,4 @@
-! After update call `xrdb -merge $HOME/Xresources`
+! After update call `xrdb -merge $HOME/.Xresources`
 
 ! Perl bindings for copy, paste, text select, and url-select {{{ ---------------
 ! Located at `/usr/lib/urxvt/perl/
@@ -36,19 +36,23 @@ URxvt.keysym.C-0:       font-size:reset
 ! urxvt*font: xft:terminus:size=11,xft:Inconsolata\ for\ Powerline:size=11
 !
 ! Go Mono
-! urxvt*font: xft:Go\ Mono:size=11,xft:Inconsolata\ for\ Powerline:size=11
+urxvt*font: xft:Go\ Mono:size=11,xft:Inconsolata\ for\ Powerline:size=11
 
 ! Go mono bold
 ! urxvt*font: xft:Go\ Mono:size=11,xft:Inconsolata\ for\ Powerline:size=11
 
 ! terminus
-urxvt*font: xft:terminus:size=11,xft:Inconsolata\ for\ Powerline:size=11
+! urxvt*font: xft:terminus:size=11,xft:Inconsolata\ for\ Powerline:size=11
 ! }}}
 ! Colors {{{ -------------------------------------------------------------------
 
+! Colors I have been using for a long time
 URxvt*foreground:   #c5c8c6
 URxvt*background:   #000000
-URxvt*cursorColor:  #aeafad 
+!URxvt*cursorColor:  #aeafad
+
+! For new vim theme `simple`
+URxvt*cursorColor:  #ecebec
 
 ! For some reason this made my cursor pink if I uncomment it. 
 !
