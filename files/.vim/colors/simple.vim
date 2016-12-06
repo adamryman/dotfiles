@@ -23,7 +23,7 @@ hi CursorLine ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#3c3d37 gui=N
 hi CursorColumn ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#3c3d37 gui=NONE
 hi ColorColumn ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#3c3d37 gui=NONE
 
-" Line NumbeR
+" Line Number
 hi LineNr ctermfg=255 ctermbg=235 cterm=NONE guifg=#90908a guibg=#3c3d37 gui=NONE
 hi CursorLineNr ctermfg=197 ctermbg=255 cterm=NONE guifg=#90908a guibg=#3c3d37 gui=NONE
 
@@ -64,7 +64,7 @@ hi Number ctermfg=88 ctermbg=NONE cterm=underline guifg=#ae81ff guibg=NONE gui=N
 "hi Character ctermfg=141 ctermbg=NONE cterm=NONE guifg=#ae81ff guibg=NONE gui=NONE
 "hi String ctermfg=186 ctermbg=NONE cterm=NONE guifg=#e6db74 guibg=NONE gui=NONE
 hi String ctermfg=16 ctermbg=NONE cterm=NONE guifg=#e6db74 guibg=NONE gui=NONE
-"hi Constant ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi Constant ctermfg=16 ctermbg=NONE cterm=bold guifg=NONE guibg=NONE gui=NONE
 "hi Identifier ctermfg=81 ctermbg=NONE cterm=NONE guifg=#66d9ef guibg=NONE gui=italic
 "
 "hi Keyword ctermfg=197 ctermbg=NONE cterm=NONE guifg=#f92672 guibg=NONE gui=NONE
@@ -78,8 +78,9 @@ hi Conditional ctermfg=16 ctermbg=NONE cterm=bold guifg=#f92672 guibg=NONE gui=N
 "hi StorageClass ctermfg=81 ctermbg=NONE cterm=NONE guifg=#66d9ef guibg=NONE gui=italic
 "hi Operator ctermfg=197 ctermbg=NONE cterm=NONE guifg=#f92672 guibg=NONE gui=NONE
 "
-hi Comment ctermfg=242 ctermbg=NONE cterm=italic guifg=#75715e guibg=NONE gui=NONE
-hi SpecialComment ctermfg=242 ctermbg=NONE cterm=italic guifg=#75715e guibg=NONE gui=NONE
+hi Comment ctermfg=237 ctermbg=NONE cterm=italic guifg=#75715e guibg=NONE gui=NONE
+hi link SpecialComment Comment
+"hi SpecialComment ctermfg=239 ctermbg=NONE cterm=italic guifg=#75715e guibg=NONE gui=NONE
 
 hi PreProc ctermfg=16 ctermbg=NONE cterm=NONE guifg=#f92672 guibg=NONE gui=NONE
 hi Special ctermfg=16 ctermbg=NONE cterm=NONE guifg=#f8f8f2 guibg=NONE gui=NONE
