@@ -13,7 +13,7 @@ source ./utility.sh
 # Loop through the files, back them up, simlink them
 function basedotfilesinstall {
 	# Note this cannot link a directory in $HOME. i.e. .vim or .config
-	# It must be at least one directory deep	
+	# It must be at least one directory deep
 	files[0]=".config/dotfiles/enabled.sh"
 
 	files[10]=".bash_profile"
@@ -23,9 +23,10 @@ function basedotfilesinstall {
 	files[20]=".vimrc"
 	files[21]=".vim/colors"
 	files[22]=".vim/ftplugin"
+	files[24]=".vim/bundle/vundle-conf.vim"
 
 	# nvim
-	files[23]=".config/nvim"
+	files[29]=".config/nvim"
 
 	files[30]=".vimperatorrc"
 
@@ -34,18 +35,18 @@ function basedotfilesinstall {
 
 	files[50]=".config/fontconfig"
 	files[51]=".fonts"
-	
+
 	files[60]=".xinitrc"
 
 	files[70]=".Xresources"
 
 	files[80]=".config/xfce4"
 	files[81]=".xprofile"
-	
+
 	files[90]=".w3m/keymap"
 
 	# Capture the time for the backupdir
-	backupdir=$(date +%s) 
+	backupdir=$(date +%s)
 	echo echo "BACKING UP TO $PWD/backup/$backupdir"
 	echo
 	# Loop through the files backing up and simlinking
@@ -57,9 +58,9 @@ function basedotfilesinstall {
 	done
 
 	echo "Call"
-	echo  '$ ./restore.sh' $backupdir 
+	echo  '$ ./restore.sh' $backupdir
 	echo "to restore backup"
-	echo 
+	echo
 }
 
 basedotfilesinstall
