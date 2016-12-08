@@ -34,7 +34,15 @@ dashes in them when you add them to things.
 
 Add `w=1` to a github diff url query and get the diff without showing whitespace diffs
 
-
 ## vim
 
 Get spelling suggestions with `i_Ctrl-X_Crtl_K`
+
+## Removing symlinks dirs
+
+```
+# this works
+rm foo
+# versus
+rm foo/
+```
