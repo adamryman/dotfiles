@@ -85,6 +85,7 @@ set number
 
 syntax on
 colorscheme monokai
+"colorscheme simple
 
 " }}}
 " Search {{{ --------------------------------------------------------------
@@ -113,7 +114,7 @@ map <C-l> <C-w>l
 set splitbelow
 set splitright
 
-" }}} 
+" }}}
 
 " General Personal {{{ -------------------------------------------------
 " Lets me see those tabs and spaces
@@ -143,7 +144,7 @@ set shiftwidth=4
 " Increamental search highlighting
 set incsearch
 
-" By default backspace does not remove auto-indenting (indent), 
+" By default backspace does not remove auto-indenting (indent),
 " end of line characters (eol),
 " or text created before entering inset mode (start).
 " This command makes backspace behave like most editors in insert mode
@@ -151,6 +152,17 @@ set backspace=indent,eol,start
 
 " Turn Shift-Tab into Ctrl-P, like Tab is Ctrl-N
 noremap <S-Tab> <C-P>
+
+" Set text wrapping to 80 char.
+set textwidth=80
+
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 " }}}
 " Leader {{{ --------------------------------------------------------------
 " change my leader to space, using map allows me to see it with a \ in the
@@ -223,8 +235,8 @@ map <leader><leader>y :let @+ = expand("%:p")<CR>
 
 " Call xclip to put yank buffer into system clipboard, yank first if in visual
 " mode
-nmap <leader>y :silent call system('xclip -selection clipboard -in', @0)<CR>
-vmap <leader>y y:silent call system('xclip -selection clipboard -in', @0)<CR>
+nmap <leader>y :silent call system('xclip -selection p -in', @0)<CR>
+vmap <leader>y y:silent call system('xclip -selection p -in', @0)<CR>
 
 " Quick system buffer put / clipboard put
 map <leader>p "+p
@@ -242,9 +254,19 @@ map <leader>n :LAg<Space>
 " Comment code!
 map <leader>cd <plug>NERDCommenterToggle
 
+" Create bars of dashes from the last charater on a line to
+" the "&textwidth" as set by the user. Used to make plaintext seperations of
+" sections like in this file
+" Currently not working
+map <leader>- :silent 'execute "set virtualedit=block" <bar> exec "normal A\ \<ESC>\<C-V>" . &textwidth . "<bar>r-" <bar> exec "set virtualedit=\"\""<CR>'
+
+" Remove trailing whitespace
+map <leader><BS> :%s/\s\+$//e<CR>
+
 " }}}
 " Vundler Plugin Configs {{{ ----------------------------------------------
 if $DOTFILES_vundle == '1'
+
 
 " airline with powerline fonts, must be installed
 " https://github.com/vim-airline/vim-airline
@@ -298,10 +320,16 @@ set completeopt -=preview
 " LAg uses the location list
 "let g:ag_highlight=1
 if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+	let g:ackprg = 'ag --vimgrep --smart-case'
 endif
 let g:ackhighlight = 1
 "g:ackpreview = 1
+
+" use Ag instead of Ack when typing
+cnoreabbrev ag Ack
+cnoreabbrev aG Ack
+cnoreabbrev Ag Ack
+cnoreabbrev AG Ack
 
 endif " }}}
 " truss {{{ ----------------------------------------------
