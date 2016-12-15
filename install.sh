@@ -23,7 +23,8 @@ function basedotfilesinstall {
 	files[20]=".vimrc"
 	files[21]=".vim/colors"
 	files[22]=".vim/ftplugin"
-	files[24]=".vim/bundle/vundle-conf.vim"
+	files[23]=".vim/bundle/vundle-conf.vim"
+	files[24]=".vim/scatch.vim"
 
 	# nvim
 	files[29]=".config/nvim"
