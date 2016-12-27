@@ -12,8 +12,20 @@ du -sh * | sort -hr
 
 // shrug
  ¯\_(ツ)_/¯
+
 ```
-# fonts on linux
+
+# Linux
+
+## Suspend
+
+http://askubuntu.com/questions/1792/how-can-i-suspend-hibernate-from-command-line
+
+```
+systemctl suspend
+```
+
+## fonts on linux
 
 `sudo fc-cache -f -v`
 `fc-list`
