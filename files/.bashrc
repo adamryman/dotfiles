@@ -206,6 +206,9 @@ fi
 
 # }}} 
 # Aliases {{{ -----------------------------------------------------------
+# clear for tmux without removing scrollback
+alias clear="printf '\033[2J\033[H'"
+
 # some more ls aliases
 alias l='ls -1'
 alias la='ls -la'
@@ -256,5 +259,6 @@ export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:/$HOME/.screenlayout
 
 # }}} 
+gophersay You can do anything
 # Fold on opening for organization
 # vim:foldmethod=marker:foldlevel=0
