@@ -32,6 +32,11 @@ systemctl suspend
 
 Check out `etc/fonts/fonts.conf` for all the info.
 
+## tmux
+```
+tmux list-clients -F "#{client_activity} #{pane_current_path}" | sort -r | awk '{ print $2 }'
+```
+
 
 # Golang
 
@@ -58,3 +63,4 @@ rm foo
 # versus
 rm foo/
 ```
+
