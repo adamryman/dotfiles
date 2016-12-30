@@ -30,6 +30,8 @@ function basedotfilesinstall {
 	files[29]=".config/nvim"
 
 	files[30]=".vimperatorrc"
+	files[32]=".surf/script.js"
+	files[34]=".w3m/keymap"
 
 	files[40]=".config/i3"
 	files[41]=".config/i3status"
@@ -38,14 +40,12 @@ function basedotfilesinstall {
 	files[51]=".fonts"
 
 	files[60]=".xinitrc"
+	files[61]=".xprofile"
+	files[62]=".Xresources"
 
-	files[70]=".Xresources"
+	files[70]=".config/st/config.h"
 
 	files[80]=".config/xfce4"
-	files[81]=".xprofile"
-
-	files[90]=".w3m/keymap"
-	files[95]=".surf/script.js"
 
 	# Capture the time for the backupdir
 	backupdir=$(date +%s)
