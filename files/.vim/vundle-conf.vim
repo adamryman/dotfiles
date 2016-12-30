@@ -45,10 +45,12 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-airline/vim-airline'
 
 " Get link to github line number for code
-Plugin 'solars/github-vim'
+Plugin 'tonchis/vim-to-github'
 
 " Tagbar, for golang
 Plugin 'majutsushi/tagbar'
+
+Plugin 'vimwiki/vimwiki'
 
 " Can use with ag
 " if executable('ag')

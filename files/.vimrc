@@ -6,7 +6,7 @@ set nocompatible
 filetype plugin indent on
 
 if $DOTFILES_vundle == '1'
-	source $HOME/.vim/bundle/vundle-conf.vim
+	source $HOME/.vim/vundle-conf.vim
 endif
 
 " Line {{{ ----------------------------------------------------------------
@@ -171,8 +171,8 @@ map <leader><leader>y :let @+ = expand("%:p")<CR>
 
 " Call xclip to put yank buffer into system clipboard, yank first if in visual
 " mode
-nmap <leader>y :silent call system('xclip -selection p -in', @0)<CR>
-vmap <leader>y y:silent call system('xclip -selection p -in', @0)<CR>
+nmap <leader>y :silent call system('xclip -selection c -in', @0)<CR>
+vmap <leader>y y:silent call system('xclip -selection c -in', @0)<CR>
 
 " Quick system buffer put / clipboard put
 map <leader>p "+p
