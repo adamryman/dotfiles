@@ -45,6 +45,7 @@ function basedotfilesinstall {
 	files[81]=".xprofile"
 
 	files[90]=".w3m/keymap"
+	files[95]=".surf/script.js"
 
 	# Capture the time for the backupdir
 	backupdir=$(date +%s)
