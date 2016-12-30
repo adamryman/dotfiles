@@ -37,6 +37,15 @@ Check out `etc/fonts/fonts.conf` for all the info.
 tmux list-clients -F "#{client_activity} #{pane_current_path}" | sort -r | awk '{ print $2 }'
 ```
 
+## i3 
+
+If you exec things that send key input they need to be on a release
+```
+# sends a null byte
+bindsym --release Mod1+Shift+b exec "xdotool key ctrl+shift+at
+```
+
+
 
 # Golang
 
