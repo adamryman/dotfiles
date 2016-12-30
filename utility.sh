@@ -59,6 +59,6 @@ function backup_and_replace {
 	# backup the file in the home directory and put them in the backup directory
 	backup $HOME/$1 $2
 	# Take the file from this directory and simlink it to the home directory
-	simlink $PWD/files/$1 $HOME/$1
+	simlink $PWD/HOME/$1 $HOME/$1
 }
 
