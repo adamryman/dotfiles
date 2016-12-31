@@ -2,7 +2,7 @@
 
 ```
 // Show how much space files and directories (plus all children) take
-du -sh * | sort -hr
+du -dh1 2>/dev/null | sort -hr
 ```
 
 ### Cool emojis / kaomoji
