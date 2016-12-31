@@ -45,6 +45,7 @@ function basedotfilesinstall {
 	files[62]=".Xresources"
 
 	files[70]=".config/st/config.h"
+	files[71]=".tmux.conf"
 
 	files[80]=".config/xfce4"
 
