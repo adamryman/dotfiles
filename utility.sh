@@ -35,7 +35,7 @@ function backup {
 function simlink {
 	base=$(basename $2)
 	basedir=${2%$base}
-	
+
 	#echo "mkdir -p $basedir"
 	mkdir -p $basedir
 	# If -f flag, non interactive
