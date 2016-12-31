@@ -31,11 +31,11 @@ set $right l
 floating_modifier Mod1
 
 # start a terminal
-bindsym Mod1+Return exec st -e "tmux"
+bindsym Mod1+Return exec st tmux
 #bindsym Mod1+Return exec i3-sensible-terminal
 
 # start a terminal from the same path as the current terminal
-bindsym Mod1+Shift+Return exec st -e "tmuxcwd"
+bindsym Mod1+Shift+Return exec st tmuxcwd
 
 # start qutebrowser. The coolest browser ever:
 # https://github.com/The-Compiler/qutebrowser
@@ -45,7 +45,7 @@ bindsym Mod1+backslash exec qutebrowser
 bindsym Mod1+bracketright exec firefox
 
 # kill focused window
-bindsym Mod1+Shift+q kill
+bindsym Mod1+Control+Shift+q kill
 
 # Screenshots, make me feel like mac again
 bindsym Control+Shift+3 exec scrot
