@@ -9,8 +9,10 @@ sudo echo "thanks"
 mkdir -p $HOME/external/st
 cd $HOME/external/st
 git clone http://git.suckless.org/st .
+make
 
 # config
+rm config.h
 mkdir -p $HOME/.config/st
 ln -s $HOME/.config/st/config.h $HOME/external/st/config.h
 
