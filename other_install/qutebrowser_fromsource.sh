@@ -8,7 +8,7 @@ sudo apt install -y python3-pyqt5 python3-pyqt5.qtwebkit python3-pyqt5.qtquick \
 	python-tox python3-sip python3-dev
 
 # :help
-sudo apt-get install asciidoc source-highlight
+sudo apt install -y asciidoc source-highlight
 
 cd $HOME/external/qutebrowser
 git clone https://github.com/The-Compiler/qutebrowser.git .
