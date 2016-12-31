@@ -31,7 +31,8 @@ function basedotfilesinstall {
 
 	files[30]=".vimperatorrc"
 	files[32]=".surf/script.js"
-	files[34]=".w3m/keymap"
+	files[33]=".surf/config.h"
+	files[36]=".w3m/keymap"
 
 	files[40]=".config/i3"
 	files[41]=".config/i3status"
