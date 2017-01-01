@@ -13,7 +13,7 @@ sudo apt install -y git xfonts-terminus xclip tmux htop silversearcher-ag \
 	cmake build-essential curl keychain
 
 # gui / X
-sudo apt install -y xserver-xorg-core i3 rxvt-unicode-256color keynav firefox \
+sudo apt install -y xserver-xorg-core i3 keynav firefox \
 	redshift scrot arandr cmake feh keepassx autocutsel
 
 # python binding
