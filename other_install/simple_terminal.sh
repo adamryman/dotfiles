@@ -2,9 +2,7 @@
 echo "enter sudo your password"
 sudo echo "thanks"
 
-# I know most systems will need some header files for X11 will add once I run
-# this on a new computer
-#sudo apt install -y
+sudo apt install -y x11proto-core-dev libx11-dev libxft-dev
 
 mkdir -p $HOME/external/st
 cd $HOME/external/st
