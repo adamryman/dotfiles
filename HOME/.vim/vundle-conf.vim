@@ -133,6 +133,10 @@ cnoreabbrev aG Ack
 cnoreabbrev Ag Ack
 cnoreabbrev AG Ack
 
+" For plugin 'tonchis/vim-to-github'
+let g:to_github_clip_command = 'xclip -sel clip -i'
+let g:to_github_clipboard = 1
+
 " }}}
 endif
 
