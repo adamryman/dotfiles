@@ -99,6 +99,10 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+
+" .gv files are graphviz files, they will be rendered using dot
+autocmd BufNewFile,BufRead *.gv set filetype=graphviz
+
 " }}}
 " Leader {{{ --------------------------------------------------------------
 " change my leader to space, using map allows me to see it with a \ in the
