@@ -1,16 +1,16 @@
 # !/bin/bash
 
 # nvim ppa
-sudo apt install software-properties-common 
+sudo apt install software-properties-common
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update
 
-# neovim 
+# neovim
 sudo apt install -y python-dev python-pip python3-pip python3-dev neovim
 
 # cli
 sudo apt install -y git xfonts-terminus xclip tmux htop silversearcher-ag \
-	cmake build-essential curl keychain
+	cmake build-essential curl keychain graphviz
 
 # gui / X
 sudo apt install -y xserver-xorg-core i3 keynav firefox \
