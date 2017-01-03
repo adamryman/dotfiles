@@ -12,7 +12,7 @@ sudo apt update
 sudo apt install -y linux-image-extra-$(uname -r) linux-image-extra-virtual
 
 sudo apt update
-sudo apt install docker-engine
+sudo apt install -y docker-engine
 sudo service docker start
 
 # group in ubuntu
