@@ -2,11 +2,11 @@
 source $HOME/.config/dotfiles/enabled.sh
 # }}}
 # Clipboard {{{ -----------------------------------------------------
-if [ "$DOTFILES_X" = "1" ]; then
-	if which autocutsel > /dev/null; then
-		autocutsel & autocutsel -s PRIMARY &
-	fi
-fi
+#if [ "$DOTFILES_X" = "1" ]; then
+#	if which autocutsel > /dev/null; then
+#		autocutsel & autocutsel -s PRIMARY &
+#	fi
+#fi
 # }}}
 # bashrc for nonlogin {{{ -----------------------------------------------------
 if [ -n "$BASH_VERSION" ]; then
