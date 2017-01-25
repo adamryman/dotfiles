@@ -17,6 +17,16 @@ du -dh1 2>/dev/null | sort -hr
 
 # Linux
 
+## Add swap after install - easy
+https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04
+
+```
+sudo fallocate -l 16G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+```
+
 ## Suspend
 
 http://askubuntu.com/questions/1792/how-can-i-suspend-hibernate-from-command-line
@@ -35,6 +45,11 @@ Check out `etc/fonts/fonts.conf` for all the info.
 ## tmux
 ```
 tmux list-clients -F "#{client_activity} #{pane_current_path}" | sort -r | awk '{ print $2 }'
+```
+## netstat
+
+```
+netstat -tulpn
 ```
 
 ## i3 
@@ -76,4 +91,3 @@ rm foo/
 ## vim
 
 Get spelling suggestions with `i_Ctrl-X_Crtl_K`
->>>>>>> Stashed changes
