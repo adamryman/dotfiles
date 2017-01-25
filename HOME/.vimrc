@@ -89,9 +89,6 @@ set backspace=indent,eol,start
 " Turn Shift-Tab into Ctrl-P, like Tab is Ctrl-N
 noremap <S-Tab> <C-P>
 
-" Set text wrapping to 80 char.
-set textwidth=80
-
 " Highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -198,11 +195,18 @@ map <leader>cd <plug>NERDCommenterToggle
 " the "&textwidth" as set by the user. Used to make plaintext seperations of
 " sections like in this file
 " Currently not working
-map <leader>- :silent 'execute "set virtualedit=block" <bar> exec "normal A\ \<ESC>\<C-V>" . &textwidth . "<bar>r-" <bar> exec "set virtualedit=\"\""<CR>'
+map <leader>- :silent 'execute "set virtualedit=block" <bar> exec "normal A\ \<ESC>\<C-V>80<bar>r-" <bar> exec "set virtualedit=\"\""<CR>'
 
 " Remove trailing whitespace
 map <leader><BS> :%s/\s\+$//e<CR>
 
+" Open a new file with the full directory path
+map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+" Crazy
+" git checkout HEAD file, but on a visual selection
+" Currently not working as a leader command, but will work for copy + paste
+"vnoremap <leader>c :g/./silent execute ".!true && git blame -p -L" . line(".") . "," . line(".") . " HEAD -- % <bar> tail -1 <bar> cut -c 2-" <bar> let @/ = ""<CR>
 " }}}
 " truss {{{ ----------------------------------------------
 " Set .gotemplate to go file for syntax, but let it fail as it is a template
