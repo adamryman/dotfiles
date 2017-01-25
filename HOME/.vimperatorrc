@@ -13,8 +13,13 @@ map K :tabnext<Return>
 
 map s :tabopen google<space>
 
+"Would like to map Ctrl-e to Ctrl-i (open editor) but is not working"
+"map <C-e> <C-i>
+
+
 set gui=none
 set gui=tabs
+set editor=st\ vim
 
 " Try to stay in normal mode after loading a web page
 set focuscontent
