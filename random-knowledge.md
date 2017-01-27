@@ -91,3 +91,11 @@ rm foo/
 ## vim
 
 Get spelling suggestions with `i_Ctrl-X_Crtl_K`
+
+# git
+
+Update commit date and author date
+
+```
+GIT_COMMITTER_DATE="`date`" && git commit --amend --date "$GIT_COMMITTER_DATE" --no-edit
+```
