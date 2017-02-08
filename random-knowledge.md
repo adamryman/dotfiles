@@ -99,3 +99,13 @@ Update commit date and author date
 ```
 GIT_COMMITTER_DATE="`date`" && git commit --amend --date "$GIT_COMMITTER_DATE" --no-edit
 ```
+
+## wut weird vim scripting
+
+Basically use vim in a pipeline, but bad
+
+Maybe this will help http://blog.robertelder.org/use-vim-inside-a-unix-pipe-like-sed-or-awk/
+
+```
+FOOBAR=$(mktemp -d) rm ${FOOBAR}/tmp && godoc github.com/adamryman/kit/dbconn | vim -V0 -c "normal 4ddGI    " -c "saveas ${FOOBAR}/tmp"   -c "wq!" --headless - 2>1 > /dev/null; cat ${FOOBAR}/tmp
+```
