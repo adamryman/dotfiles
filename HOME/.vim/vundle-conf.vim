@@ -50,13 +50,16 @@ Plugin 'tonchis/vim-to-github'
 " Tagbar, for golang
 Plugin 'majutsushi/tagbar'
 
-Plugin 'vimwiki/vimwiki'
+"Plugin 'vimwiki/vimwiki'
 
 " Can use with ag
 " if executable('ag')
 "   let g:ackprg = 'ag --vimgrep'
 " endif
 Plugin 'mileszs/ack.vim'
+
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
