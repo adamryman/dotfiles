@@ -259,6 +259,23 @@ export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:/$HOME/.screenlayout
 
 # }}} 
+# In flight {{{---------------------------------------------------------------
+
+#red_wrong='\e[38;5;196m'
+#dollar="`if [ \$? == 0 ]; then echo 'true'; else echo 'poo'; fi`"
+
+#function last_command_status {
+	#LASTEXIT="$?"
+	##echo "\$"
+	#if [ "$LASTEXIT" == "0" ]; then
+		##echo "$red_wrong\$$reset"
+		#echo "true"
+	#else
+		##echo "\$"
+		#echo "false"
+	#fi
+#}
+# }}}
 gophersay You can do anything
 # Fold on opening for organization
 # vim:foldmethod=marker:foldlevel=0
