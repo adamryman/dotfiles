@@ -8,6 +8,7 @@ git clone https://github.com/neovim/neovim .
 # @zaquestion uses
 git checkout v0.1.6
 mkdir build
+git checkout v0.1.6
 make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/external/neovim/build"
 make install
 mkdir -p $HOME/bin
