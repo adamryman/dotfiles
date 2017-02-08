@@ -246,7 +246,7 @@ alias rmqq="rm /tmp/q"
 if [ -f ~/.config/dotfiles/bash_aliases.sh ]; then
     . ~/.config/dotfiles/bash_aliases.sh
 fi
-# }}} 
+# }}}
 # Path {{{ -----------------------------------------------------------
 
 # Add go bins to path
@@ -259,6 +259,9 @@ export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:/$HOME/.screenlayout
 
 # }}} 
+# Local - after {{{ -----------------------------------------------------------
+source $HOME/.config/dotfiles/bash_after.sh
+# }}}
 # In flight {{{---------------------------------------------------------------
 
 #red_wrong='\e[38;5;196m'
