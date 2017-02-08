@@ -17,6 +17,7 @@ sudo apt install -y xserver-xorg-core i3 keynav firefox \
 	redshift scrot arandr cmake feh keepassx autocutsel
 
 # python binding
+pip2 install neovim
 pip3 install neovim
 
 sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
