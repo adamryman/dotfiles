@@ -258,6 +258,9 @@ export PATH=$PATH:$HOME/.local/bin
 # add screenlayouts
 export PATH=$PATH:/$HOME/.screenlayout
 
+# rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # }}} 
 # Local - after {{{ -----------------------------------------------------------
 source $HOME/.config/dotfiles/bash_after.sh
