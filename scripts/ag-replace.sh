@@ -12,7 +12,7 @@ replace() {
 	excaped2=$(echo "$2" | sed -e 's/[\/&]/\\&/g');
 
 	# list files with this literal string, case sensitive
-	files=$(ag "$1" -Qls)
+	files=$(ag -Qls -- "$1")
 	echo "$files" | while read line; do
 		echo "$line"
 		sed -i "s/$excaped1/$excaped2/g" "$(pwd)"/"$line";
