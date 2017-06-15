@@ -36,6 +36,7 @@ function basedotfilesinstall {
 
 	files[40]=".config/i3"
 	files[41]=".config/i3status"
+	files[42]=".config/compton"
 
 	files[50]=".config/fontconfig"
 	files[51]=".fonts"
