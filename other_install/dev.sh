@@ -38,3 +38,7 @@ git config --global user.name "Adam Ryman"
 # downloads dir
 mkdir -p $HOME/downloads
 xdg-user-dirs-update --set DOWNLOAD $HOME/downloads
+
+# Install go font
+git clone https://go.googlesource.com/image /tmp/image-go-fonts
+sudo cp /tmp/image-go-fonts/font/gofont/ttfs/Go-Mono* /usr/share/fonts/truetype/
