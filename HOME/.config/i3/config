@@ -33,6 +33,8 @@ bindsym Mod1+Control+Shift+q kill
 # Screenshots, make me feel like mac again
 bindsym Control+Shift+3 exec scrot
 
+bindsym Mod1+Shift+f exec xbacklight -set 10
+
 # --release gives up control to the launched program
 # runs a shellscript that allows me to take a selectable screenshot and then upload to dropbox and put a link in my clipboard
 bindsym --release Control+Shift+4 exec $HOME/.config/dotfile_scripts/scrotbox.sh
