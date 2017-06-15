@@ -1,5 +1,8 @@
 # !/bin/bash
 
+set -e
+[[ -z $DEBUG ]] || set -x
+
 # nvim ppa
 sudo apt install software-properties-common
 sudo add-apt-repository ppa:neovim-ppa/unstable
@@ -42,3 +45,9 @@ xdg-user-dirs-update --set DOWNLOAD $HOME/downloads
 # Install go font
 git clone https://go.googlesource.com/image /tmp/image-go-fonts
 sudo cp /tmp/image-go-fonts/font/gofont/ttfs/Go-Mono* /usr/share/fonts/truetype/
+
+
+# Install golang
+curl `curl -s -L https://golang.org/dl | grep 'download downloadBox.\+linux-amd64' | cut -d'"' -f 4` > /tmp/golang.tar.gz
+test -r /usr/local/go && sudo rm -rf /usr/local/go
+sudo tar -C /usr/local/ -xzf /tmp/golang.tar.gz
