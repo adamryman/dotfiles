@@ -35,3 +35,6 @@ sudo apt install -y xsel
 #git config --global user.email "adamryman@gmail.com"
 git config --global user.name "Adam Ryman"
 
+# downloads dir
+mkdir -p $HOME/downloads
+xdg-user-dirs-update --set DOWNLOAD $HOME/downloads
