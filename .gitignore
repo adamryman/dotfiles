@@ -9,3 +9,4 @@ backup/*
 Session.vim
 
 files/.config/dotfiles/enabled.sh
+HOME/.vim/.netrwhist
