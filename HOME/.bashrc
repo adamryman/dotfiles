@@ -176,7 +176,7 @@ function cdgit {
 
 # go to the go package
 function cdgo {
-	cd $GOPATH/src/"$1"
+	cd $(go list -e -f={{.Dir}} "$1")
 }
 
 function gitnow {
@@ -220,7 +220,7 @@ alias lach="la -l | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/) \
              *2^(8-i));if(k)printf(\"%0o \",k);print}'"
 
 # Less with color and cancling if it will not scroll the terminal
-alias lesss='less -XFR'
+alias lesss='less -RXF'
 
 # Tree into less with color
 alias treee='tree -C | less -XRF'
@@ -242,6 +242,17 @@ alias clean='make clean'
 alias qq=". $GOPATH/src/github.com/y0ssar1an/q/q.sh"
 alias rmqq="rm /tmp/q"
 
+
+# something about putting aliases in xargs
+p () {
+	echo "$1" | tr ':' ' ' | xargs clput
+}
+
+# something about putting aliases in xargs
+x () {
+	alias $1 | cut -d "'" -f 2 | xargs echo
+}
+
 # Local Alias definitions.
 if [ -f ~/.config/dotfiles/bash_aliases.sh ]; then
     . ~/.config/dotfiles/bash_aliases.sh
@@ -256,9 +267,14 @@ export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 export PATH=$PATH:$HOME/.local/bin
 
 # add screenlayouts
-export PATH=$PATH:/$HOME/.screenlayout
+export PATH=$PATH:$HOME/.screenlayout
 
-# }}} 
+# pyenv
+export PATH=$PATH:$HOME/.pyenv/bin
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# }}}
 # Local - after {{{ -----------------------------------------------------------
 source $HOME/.config/dotfiles/bash_after.sh
 # }}}
