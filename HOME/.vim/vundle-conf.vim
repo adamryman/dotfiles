@@ -50,7 +50,7 @@ Plugin 'tonchis/vim-to-github'
 " Tagbar, for golang
 Plugin 'majutsushi/tagbar'
 
-"Plugin 'vimwiki/vimwiki'
+Plugin 'vimwiki/vimwiki'
 
 " Can use with ag
 " if executable('ag')
