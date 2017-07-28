@@ -176,7 +176,11 @@ function cdgit {
 
 # go to the go package
 function cdgo {
-	cd $(go list -e -f={{.Dir}} "$1")
+	dir=$(go list -e -f={{.Dir}} "$1")
+	cd $dir
+	if [[ $dir == $HOME ]]; then
+		cd $GOPATH/src;
+	fi
 }
 
 function gitnow {
@@ -252,6 +256,9 @@ x () {
 	alias $1 | cut -d "'" -f 2 | xargs echo
 }
 
+# python
+alias vnv="source $HOME/bin/venv3/bin/activate"
+
 # Local Alias definitions.
 if [ -f ~/.config/dotfiles/bash_aliases.sh ]; then
     . ~/.config/dotfiles/bash_aliases.sh
@@ -272,13 +279,10 @@ export PATH=$PATH:$HOME/.screenlayout
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # }}}
-# pyenv
-export PATH=$PATH:$HOME/.pyenv/bin
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-# }}}
 # Local - after {{{ -----------------------------------------------------------
+if [[ ! -f $HOME/.config/dotfiles/bash_after.sh ]]; then
+	touch $HOME/.config/dotfiles/bash_after.sh;
+fi
 source $HOME/.config/dotfiles/bash_after.sh
 # }}}
 # In flight {{{---------------------------------------------------------------

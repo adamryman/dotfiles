@@ -13,7 +13,7 @@ sudo apt install -y python-dev python-pip python3-pip python3-dev neovim
 
 # cli
 sudo apt install -y git xfonts-terminus xclip tmux htop silversearcher-ag \
-	cmake build-essential curl keychain graphviz cloc
+	cmake build-essential curl keychain graphviz cloc tree jq
 
 # gui / X
 sudo apt install -y xserver-xorg-core i3 keynav firefox \
