@@ -263,6 +263,11 @@ alias vnv="source $HOME/bin/venv3/bin/activate"
 if [ -f ~/.config/dotfiles/bash_aliases.sh ]; then
     . ~/.config/dotfiles/bash_aliases.sh
 fi
+
+# format json in clipboard
+alias fmtj='xclip -o -sel clip | jq . | sponge | xclip -i -sel clip'
+# format sql in the clipboard
+alias fmtsql='sqlformat --reindent --keywords upper  <(xclip -o -sel clip) | sponge | xclip -i -sel clip'
 # }}}
 # Path {{{ -----------------------------------------------------------
 
