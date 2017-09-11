@@ -268,6 +268,9 @@ fi
 alias fmtj='xclip -o -sel clip | jq . | sponge | xclip -i -sel clip'
 # format sql in the clipboard
 alias fmtsql='sqlformat --reindent --keywords upper  <(xclip -o -sel clip) | sponge | xclip -i -sel clip'
+
+# web server
+alias httpserver='python -m SimpleHTTPServer'
 # }}}
 # Path {{{ -----------------------------------------------------------
 
@@ -283,6 +286,10 @@ export PATH=$PATH:$HOME/.screenlayout
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# linuxbrew
+export PATH="$HOME/.linuxbrew/bin:$PATH"
+export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 # }}}
 # Local - after {{{ -----------------------------------------------------------
 if [[ ! -f $HOME/.config/dotfiles/bash_after.sh ]]; then
