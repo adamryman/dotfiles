@@ -1,19 +1,17 @@
-# dotfiles - unity
+# dotfiles
 
-This is an effort to make a core dotfiles for pair programming that is easy to install and remove.
+My dotfiles.
 
-Additionally, being a 1 command install for nice simple dotfiles on a remote server.
+Thanks [@zaquestion](https://github.com/zaquestion/dotfiles) for all the good starting points.
 
-Finally it is a hope to be a modular design for dotfiles, providing a stable shared core.
+Have learned tips and tricks from [@lelandbatey](https://github.com/lelandbatey/dotfiles) as well.
 
 ## Install
+```
+curl https://raw.githubusercontent.com/adamryman/dotfiles/master/pipe_to_shell.sh | sh
+```
 
-`$ ./install.sh` from within the dotfiles repository, a backup will be created in `./backup/EPOC_TIME`
-
-`$ ./install.sh -f` will replace all files without prompt
-
-`$ ./restore.sh EPOC_TIME` can be used with an `EPOC_TIME` in the backup directory
-
-TODO:
-	- Fix issue where if a directory already exists the symlink will be created
-	  inside that directory
+### Install scripts after install
+```
+$HOME/dotfiles/scripts/update-scripts.sh
+```

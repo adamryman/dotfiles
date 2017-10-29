@@ -4,6 +4,10 @@ source $HOME/.config/dotfiles/enabled.sh
 # Bin Path {{{ -----------------------------------------------------------
 # Use binaries in $HOME/bin over all other binaries
 if [ -d "$HOME/bin" ]; then
+	# Use scripts too. See $HOME/dotfiles/scripts/update-scipts.sh
+	if [ -d "$HOME/bin/scripts" ]; then
+		PATH=$HOME/bin/scripts:$PATH
+	fi
     PATH=$HOME/bin:$PATH
 fi
 # }}}
