@@ -13,27 +13,40 @@ export projects=$HOME/projects
 # Golang
 export GOPATH=$projects/go
 export GOCODE=$GOPATH/src
+export GOROOT=/usr/local/go
 # }}}
 # History {{{ -----------------------------------------------------------
 
-# Append to the history file, don't overwrite it
-# The history file is normally in memory until shell closes
-shopt -s histappend
-
-# Sets history to be 100,000 lines
-# unlimited would be optimal, but incompatibility
-# 100,000 unique lines is a lot too
-
+# Set history length in bash
 # See $ man bash
 # \HISTFILESIZE<CR>
 # \HISTSIZE<CR>n
-HISTFILESIZE=100000
-HISTSIZE=100000
+HISTSIZE=9999999
+HISTFILESIZE=9999999
 
 # Avoid duplicates
-# Erase all previous entries of a command before adding
-export HISTCONTROL=ignoredups:erasedups
+export HISTCONTROL=erasedups
+export PROMPT_COMMAND="history -a;"
 
+# cmdhist
+# If set, bash attempts to save all lines of a multiple-line command
+# in the same history entry. This allows easy re-editing of multi-line
+# commands.
+shopt -s cmdhist
+
+# histappend
+# If set, the history list is appended to the file named by the value of the
+# HISTFILE variable when the shell exits, rather than overwriting the file.
+shopt -s histappend
+
+# histreedit
+# If set, and readline is being used, a user is given the opportunity to
+# re-edit a failed history substitution.
+#shopt -s histreedit
+
+# See $HOME/.inputrc for more history options
+
+# TODO: Move to .inputrc
 ## Bash up arrow search completion
 ## http://askubuntu.com/questions/59846/bash-history-search-partial-up-arrow
 ## arrow up search through history
@@ -41,7 +54,7 @@ bind '"\e[A":history-search-backward'
 ## arrow down
 bind '"\e[B":history-search-forward'
 
-# NOTE: See .inputrc for "Tab" completiton
+# NOTE: See $HOME/.inputrc for "Tab" completiton
 # and 'j' and 'k' completion in vi mode
 # }}}
 # Completions {{{ -----------------------------------------------------------
@@ -49,6 +62,11 @@ bind '"\e[B":history-search-forward'
 if [ -f /etc/bash_completion ]; then
  . /etc/bash_completion
 fi
+
+# globstar: If set, the pattern ** used in a pathname expansion context will match all files  and  zero  or  more
+# directories  and subdirectories.  If the pattern is followed by a /, only directories and subdirectories match.
+shopt -s globstar
+
 # }}}
 # Colors {{{ -----------------------------------------------------------
 
@@ -187,28 +205,6 @@ function gitnow {
 	GIT_COMMITTER_DATE="`date`" git commit --amend --date "`date`";
 }
 # }}}
-# Misc {{{ -----------------------------------------------------------
-
-# bash vim mode
-set -o vi
-
-# ssh keychain
-# Note, this only adds the ssh key 'id_rsa',
-# I need a solution for multiple keys that may differ on different machines
-if which keychain > /dev/null; then
-	eval `keychain --quiet --eval --agents ssh id_rsa`
-fi
-
-# This loads nvm the node version manager
-export NVM_DIR="/home/adamryman/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-
-# hub is a git wrapper that gives nice github commands
-if which hub > /dev/null; then
-	alias git=hub
-fi
-
-# }}}
 # Aliases {{{ -----------------------------------------------------------
 # clear for tmux without removing scrollback
 alias clear="printf '\033[2J\033[H'"
@@ -271,6 +267,9 @@ alias fmtsql='sqlformat --reindent --keywords upper  <(xclip -o -sel clip) | spo
 
 # web server
 alias httpserver='python -m SimpleHTTPServer'
+
+alias f='vim'
+alias j='cd'
 # }}}
 # Path {{{ -----------------------------------------------------------
 
@@ -313,6 +312,32 @@ source $HOME/.config/dotfiles/bash_after.sh
 		#echo "false"
 	#fi
 #}
+# }}}
+# Misc {{{ -----------------------------------------------------------
+
+# bash vim mode
+set -o vi
+
+
+# This loads nvm the node version manager
+export NVM_DIR="/home/adamryman/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+# hub is a git wrapper that gives nice github commands
+if which hub > /dev/null; then
+	alias git=hub
+fi
+
+# set keyboard repeat rate and delay
+xset r rate 250 100
+
+# ssh keychain
+# Note, this only adds the ssh key 'id_rsa',
+# I need a solution for multiple keys that may differ on different machines
+if which keychain > /dev/null; then
+	eval `keychain --quiet --eval --agents ssh id_rsa`
+fi
+
 # }}}
 gophersay You can do anything
 # Fold on opening for organization

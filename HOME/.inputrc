@@ -1,18 +1,64 @@
-set editing-mode vi 
+# To learn more about theses options
+# $ man readline
+
+# Defaults in this file
+$include /etc/inputrc
+
+# vi mode
+set editing-mode vi
 
 #set show-all-if-ambiguous on
-# Tab menu completion 
+# Tab menu completion
 # http://unix.stackexchange.com/questions/55203/bash-autocomplete-first-list-files-then-cycle-through-them
+#
+# menu-complete (Tab)
+# Similar to complete, but replaces the word to be completed with a single
+# match from the list of possible completions. Repeated execution of
+# menu-complete steps through the list of possible completions, inserting each
+# match in turn. At the end of the list of completions, the bell is rung
+# (subject to the setting of bell-style) and the original text is restored. An
+# argument of n moves n positions forward  in the list of matches; a negative
+# argument may be used to move backward through the list. This command is
+# intended to be bound to TAB, but is unbound by default.
 Tab:menu-complete
+# menu-complete-backward (Ctrl-Tab)
+# Identical to menu-complete, but moves backward through the list of possible
+# completions, as if menu-complete had been given a negative argument. This
+# command is unbound by default.
 "\e[Z":menu-complete-backward
 
-## bash vim command mode search completion
-## http://vim.wikia.com/wiki/Use_vi_shortcuts_in_terminal
-set keymap vi-command
-"j": history-search-forward
-"k": history-search-backward
+# possible-completions (Ctrl-A)
+# List  the possible completions of the text before point.  When displaying
+# completions, readline sets the number of columns used for display to the
+# value of completion-display-width, the value of the environment  varable
+# COLUMNS, or the screen width, in that order.
+# TODO: Switch out with something else
+C-a:possible-completions
+
+# EXAMPLE FOR FUN. Quotes stuff in vi mode
+Control-o:"\ebi\"\eea\""
 
 # Add a slash when autocompleting symlink directories
 # http://superuser.com/a/271677
-$include /etc/inputrc
 set mark-symlinked-directories on
+
+# revert-all-at-newline
+# If set to On, readline will undo all changes to history lines before
+# returning when accept-line is  executed.  By default, history lines may be
+# modified and retain individual undo lists across calls to readline.
+set revert-all-at-newline on
+
+# skip-completed-text (Off)
+# If set to On, this alters the default completion behavior when inserting a
+# single match into the line. It's only active when performing completion in
+# the middle of a word. If enabled, readline does not insert characters from
+# the completion that match characters after point in the word being completed,
+# so  portions  of  the word following the cursor are not duplicated.
+set skip-completed-text on
+
+## bash vim command mode search completion
+## http://vim.wikia.com/wiki/Use_vi_shortcuts_in_terminal
+# NOTE: Put all bindings for "insert" mode before this line. All "normal" mode after this line
+set keymap vi-command
+"j": history-search-forward
+"k": history-search-backward
