@@ -11,6 +11,10 @@ endif
 set t_Co=256
 let g:colors_name = "monokai"
 
+" Background color
+" Black instead of gray as gray was not drawing in areas with no text
+hi Normal ctermfg=231 ctermbg=0 cterm=NONE guifg=#f8f8f2 guibg=#272822 gui=NONE
+
 hi Cursor ctermfg=235 ctermbg=231 cterm=NONE guifg=#272822 guibg=#f8f8f0 gui=NONE
 hi Visual ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#49483e gui=NONE
 
@@ -40,7 +44,6 @@ hi Folded ctermfg=242 ctermbg=235 cterm=NONE guifg=#75715e guibg=#272822 gui=NON
 " :help signs
 hi SignColumn ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#3c3d37 gui=NONE
 
-hi Normal ctermfg=231 ctermbg=235 cterm=NONE guifg=#f8f8f2 guibg=#272822 gui=NONE
 
 hi DiffAdd ctermfg=231 ctermbg=64 cterm=bold guifg=#f8f8f2 guibg=#46830c gui=bold
 hi DiffDelete ctermfg=88 ctermbg=NONE cterm=NONE guifg=#8b0807 guibg=NONE gui=NONE
