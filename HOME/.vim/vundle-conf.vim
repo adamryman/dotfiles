@@ -22,6 +22,9 @@ endif
 Plugin 'fatih/vim-go'
 
 Plugin 'tpope/vim-fugitive'
+" Fugative plugin
+Plugin 'shumphrey/fugitive-gitlab.vim'
+
 
 Plugin 'sickill/vim-monokai'
 
@@ -139,6 +142,8 @@ cnoreabbrev AG Ack
 " For plugin 'tonchis/vim-to-github'
 let g:to_github_clip_command = 'xclip -sel clip -i'
 let g:to_github_clipboard = 1
+
+let g:fugitive_gitlab_domains = ['https://gitlab.corp.tune.com']
 
 " }}}
 endif
