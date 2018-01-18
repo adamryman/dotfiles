@@ -7,4 +7,6 @@
 # focused window you must send input to the window to guarantee that it was the
 # last active tmux client. In i3 this can be done with 
 # `bindsym --release key exec "xdotool key ctrl+shift+at"`
-tmux new-session -c $(tmux list-clients -F '#{client_activity} #{pane_current_path}' | sort | awk '{ print $2 }' | tail -1)
+CURRENT_PANE_PATH="$(tmux list-clients -F '#{client_activity} #{pane_current_path}' | sort | awk '{ print $2 }' | tail -1)";
+
+tmux new-session -c "$(if [[ -n $CURRENT_PANE_PATH ]]; then echo $CURRENT_PANE_PATH; else echo $HOME; fi)";
