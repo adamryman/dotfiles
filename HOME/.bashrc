@@ -253,7 +253,10 @@ p () {
 
 # something about putting aliases in xargs
 x () {
-	alias $1 | cut -d "'" -f 2 | xargs echo
+	# if alias
+	alias $1 2>/dev/null 1>/dev/null && \
+		alias $1 2>/dev/null | cut -d "'" -f 2 \
+	|| type $1 | tail -n +4 | head -n -1
 }
 
 # python
@@ -274,6 +277,8 @@ alias httpserver='python -m SimpleHTTPServer'
 
 alias f='vim'
 alias j='cd'
+
+alias snip="(set -x; xclip -o -sel clip; xclip -o -sel clip | lab snip -g create)"
 # }}}
 # Path {{{ -----------------------------------------------------------
 
