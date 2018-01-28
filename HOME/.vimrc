@@ -167,13 +167,22 @@ map <leader>l :set spell! spelllang=en_us<CR>
 " Clear search
 map <leader><leader><enter> :let @/ = ""<CR>
 
-" Yank current file path to x clipboard
-map <leader><leader>y :let @+ = expand("%:p")<CR>
 
 " Call xclip to put yank buffer into system clipboard, yank first if in visual
 " mode
 nmap <leader>y :silent call system('xclip -selection c -in', @0)<CR>
 vmap <leader>y y:silent call system('xclip -selection c -in', @0)<CR>
+
+" Yank current file path to x clipboard
+"map <leader><leader>y :let @+ = expand("%:p")<CR>
+
+" Copy gitlab link to line or current selection
+"TODO, echo link
+nmap <leader><leader>y V:<Home>silent! <End>Gbrowse!<CR>:echo "Gitlab link in clipboard"<CR>
+vmap <leader><leader>y :<Home>silent! <End>Gbrowse!<CR>:echo "Gitlab link in clipboard"<CR>
+" Fancy stuff to insert the 'silent' before the 'Gbrowse!
+" https://superuser.com/a/585734
+
 
 " Quick system buffer put / clipboard put
 map <leader>p "+p
