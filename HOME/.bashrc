@@ -18,6 +18,8 @@ export projects=$HOME/projects
 export GOPATH=$projects/go
 export GOCODE=$GOPATH/src
 export GOROOT=/usr/local/go
+
+export EDITOR="vim"
 # }}}
 # History {{{ -----------------------------------------------------------
 
@@ -70,6 +72,23 @@ fi
 # globstar: If set, the pattern ** used in a pathname expansion context will match all files  and  zero  or  more
 # directories  and subdirectories.  If the pattern is followed by a /, only directories and subdirectories match.
 shopt -s globstar
+
+# source external
+if [ ! -r ~/.git-completion.bash ]; then
+	echo "downloading .git-completion.bash"
+	curl -s 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash' > ~/.git-completion.bash
+fi
+source ~/.git-completion.bash
+if [ ! -r ~/.aws-completion.bash ]; then
+	echo "downloading .aws-completion.bash"
+	curl -s 'https://raw.githubusercontent.com/aws/aws-cli/master/bin/aws_completer' > ~/.aws-completion.bash
+fi
+complete -c '~/.aws-completion.bash' aws
+
+if [ ! -r ~/.docker-compose-completion.bash ]; then
+	curl -sl "https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/bash/docker-compose" > ~/.docker-compose-completion.bash
+fi
+source ~/.docker-compose-completion.bash
 
 # }}}
 # Colors {{{ -----------------------------------------------------------
@@ -246,6 +265,8 @@ alias clean='make clean'
 alias qq=". $GOPATH/src/github.com/y0ssar1an/q/q.sh"
 alias rmqq="rm /tmp/q"
 
+alias battlestation="xrandr --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal --output eDP-1 --primary --mode 1920x1080 --pos 2560x360 --rotate normal"
+
 # something about putting aliases in xargs
 p () {
 	echo "$1" | tr ':' ' ' | xargs clput
@@ -261,6 +282,7 @@ x () {
 
 # python
 alias vnv="source $HOME/bin/venv3/bin/activate"
+
 
 # Local Alias definitions.
 if [ -f ~/.config/dotfiles/bash_aliases.sh ]; then
@@ -279,11 +301,19 @@ alias f='vim'
 alias j='cd'
 
 alias snip="(set -x; xclip -o -sel clip; xclip -o -sel clip | lab snip -g create)"
+
+alias db="HOME=$HOME/.dropbox-data/ dropbox"
 # }}}
 # Path {{{ -----------------------------------------------------------
 
 # Add go bins to path
 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
+
+# pyenv
+export PATH=$PATH:$HOME/.pyenv/bin
+# pyenv from @zaquestion
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # add pip bins to path
 export PATH=$PATH:$HOME/.local/bin
@@ -298,6 +328,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.linuxbrew/bin:$PATH"
 export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+
 # }}}
 # Local - after {{{ -----------------------------------------------------------
 if [[ ! -f $HOME/.config/dotfiles/bash_after.sh ]]; then
