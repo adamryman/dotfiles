@@ -53,6 +53,10 @@ set splitright
 " }}}
 
 " General Personal {{{ -------------------------------------------------
+"
+" Escape selected text when searching in visual. Use `gv` to get back to
+" selection.
+vnoremap / <ESC>/
 " Lets me see those tabs and spaces
 set listchars=tab:>\ ,space:#,trail:‽
 
