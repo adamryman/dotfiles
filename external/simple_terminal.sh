@@ -8,6 +8,7 @@ sudo echo "thanks"
 echo "Installing dependencies"
 sudo apt install -y x11proto-core-dev libx11-dev libxft-dev
 
+(
 echo "Cloning and building"
 mkdir -p $HOME/external/st
 cd $HOME/external/st
@@ -28,5 +29,6 @@ make
 echo "Adding st to $HOME/bin"
 mkdir -p $HOME/bin
 ln -s $HOME/external/st/st $HOME/bin/st
+)
 
 echo "Done"
