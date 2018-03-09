@@ -185,6 +185,17 @@ cur_repo="\[$red\]\$(get_repo_name)\[$reset\]"
 line_join="\[$yellow\]@\[$reset\]"
 
 export PS1="$user$line_join$host\n$path $cur_branch $cur_repo\n$ "
+
+blame() {
+	ag -l $1 | \
+		while read file; do
+			echo $file
+			ag $1 --numbers $file | sed 's|:.*||' | while read line;
+				do git blame -L $line,$line $file;
+			done;
+			echo
+		done
+}
 # }}}
 # More Functions {{{ -----------------------------------------------------------
 
@@ -303,6 +314,7 @@ alias j='cd'
 alias snip="(set -x; xclip -o -sel clip; xclip -o -sel clip | lab snip -g create)"
 
 alias db="HOME=$HOME/.dropbox-data/ dropbox"
+
 # }}}
 # Path {{{ -----------------------------------------------------------
 
@@ -382,3 +394,5 @@ fi
 gophersay You can do anything
 # Fold on opening for organization
 # vim:foldmethod=marker:foldlevel=0
+
+complete -C /home/adamr/bin/terraform terraform
