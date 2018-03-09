@@ -64,6 +64,9 @@ Plugin 'mileszs/ack.vim'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 
+" syntastic for php
+Plugin 'scrooloose/syntastic'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -144,6 +147,16 @@ let g:to_github_clip_command = 'xclip -sel clip -i'
 let g:to_github_clipboard = 1
 
 let g:fugitive_gitlab_domains = ['https://gitlab.corp.tune.com']
+
+" Syntastic
+"
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_php_checkers = ['php']
+" phpmd gives too much linting
+" run it with
+" :SyntasticCheck phpmd
+"let g:syntastic_php_checkers = ['php', 'phpmd']
 
 " }}}
 endif
