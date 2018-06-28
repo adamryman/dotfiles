@@ -24,6 +24,8 @@ Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-fugitive'
 " Fugative plugin
 Plugin 'shumphrey/fugitive-gitlab.vim'
+" fugitive github
+Plugin 'tpope/vim-rhubarb'
 
 
 Plugin 'sickill/vim-monokai'
@@ -157,6 +159,7 @@ let g:syntastic_php_checkers = ['php']
 " run it with
 " :SyntasticCheck phpmd
 "let g:syntastic_php_checkers = ['php', 'phpmd']
+let g:syntastic_python_checkers = ['python2']
 
 " }}}
 endif
