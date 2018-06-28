@@ -240,6 +240,10 @@ function gitnow {
 }
 # }}}
 # Aliases {{{ -----------------------------------------------------------
+
+# clipboard
+alias vv='xclip -o -sel clip'
+
 # clear for tmux without removing scrollback
 alias clear="printf '\033[2J\033[H'"
 
