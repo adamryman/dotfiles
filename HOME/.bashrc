@@ -17,7 +17,6 @@ export projects=$HOME/projects
 # Golang
 export GOPATH=$projects/go
 export GOCODE=$GOPATH/src
-export GOROOT=/usr/local/go
 
 export EDITOR="vim"
 # }}}
