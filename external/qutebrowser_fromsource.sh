@@ -12,7 +12,7 @@ sudo apt install -y asciidoc source-highlight
 
 cd $HOME/external/qutebrowser
 git clone https://github.com/The-Compiler/qutebrowser.git .
-tox -e mkvenv
+tox -e mkvenv-pypi
 
 echo "#!/bin/bash" > $HOME/bin/qutebrowser
 echo "$(pwd)/.venv/bin/python3 -m qutebrowser \$@" >> $HOME/bin/qutebrowser

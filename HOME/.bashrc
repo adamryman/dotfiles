@@ -17,7 +17,6 @@ export projects=$HOME/projects
 # Golang
 export GOPATH=$projects/go
 export GOCODE=$GOPATH/src
-export GOROOT=/usr/local/go
 
 export EDITOR="vim"
 # }}}
@@ -240,6 +239,10 @@ function gitnow {
 }
 # }}}
 # Aliases {{{ -----------------------------------------------------------
+
+# clipboard
+alias vv='xclip -o -sel clip'
+
 # clear for tmux without removing scrollback
 alias clear="printf '\033[2J\033[H'"
 

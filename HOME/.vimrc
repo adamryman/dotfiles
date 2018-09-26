@@ -36,6 +36,8 @@ nmap <leader><leader><CR> :let @/ = ""<Return>
 
 "shows matching ({[]})
 set showmatch
+" 10ms jump time for showmatch
+set matchtime=1
 
 " }}}
 " Windowing {{{ -----------------------------------------------------------
