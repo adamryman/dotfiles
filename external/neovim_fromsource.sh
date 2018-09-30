@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo apt-get -y install libtool libtool-bin autoconf automake cmake g++ pkg-config unzip libunibilium-dev
+sudo apt-get -y install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
 mkdir -p $HOME/external/neovim
 (
 	cd $HOME/external/neovim
