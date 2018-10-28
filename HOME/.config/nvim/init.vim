@@ -6,7 +6,7 @@ set nocompatible
 filetype plugin indent on
 
 if $DOTFILES_vundle == '1'
-	source $HOME/.vim/vundle-conf.vim
+	source $HOME/.config/nvim/vundle-conf.vim
 endif
 
 " Line {{{ ----------------------------------------------------------------
@@ -117,8 +117,8 @@ map <space><space> <leader><leader>
 let maplocalleader = ","
 
 " Quick quit and write
-map <leader>q :q<CR>
-map <leader>w :w<CR>
+noremap <leader>q :q<CR>
+noremap <leader>w :w<CR>
 
 " Lets see how fast I can add stuff to my vimrc
 map <leader>v :sp $HOME/.vimrc<CR>G
