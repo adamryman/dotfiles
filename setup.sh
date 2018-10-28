@@ -16,7 +16,7 @@ echo "===== Symlinking Files ====="
 (cd HOME && \
 	find . \
 	-type f \
-	-exec test ! -r $HOME/'{}' \; \
+	-exec rm -f $HOME/'{}' \; \
 	-and \
 	-exec ln -s `pwd`/'{}' $HOME/'{}' \;
 )
