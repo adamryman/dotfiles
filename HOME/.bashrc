@@ -402,7 +402,7 @@ xset r rate 250 100
 # Note, this only adds the ssh key 'id_rsa',
 # I need a solution for multiple keys that may differ on different machines
 if which keychain > /dev/null; then
-	eval `keychain --quiet --eval --agents ssh id_rsa`
+	eval `keychain --quiet --eval --agents ssh id_rsa` || true
 fi
 
 # }}}
