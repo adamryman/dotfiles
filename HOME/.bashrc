@@ -409,5 +409,3 @@ fi
 gophersay You can do anything
 # Fold on opening for organization
 # vim:foldmethod=marker:foldlevel=0
-
-complete -C /home/adamr/bin/terraform terraform
