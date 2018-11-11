@@ -19,6 +19,9 @@ export GOPATH=$projects/go
 export GOCODE=$GOPATH/src
 
 export EDITOR="vim"
+
+# Add go bins to path
+export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 # }}}
 # History {{{ -----------------------------------------------------------
 
@@ -31,7 +34,11 @@ HISTFILESIZE=9999999
 
 # Avoid duplicates
 export HISTCONTROL=erasedups
-export PROMPT_COMMAND="history -a;"
+#export HISTTIMEFORMAT="%s "
+export PROMPT_COMMAND="history -a"
+if which go_history >/dev/null; then
+	export PROMPT_COMMAND="history -a;go_history -r"
+fi
 
 # cmdhist
 # If set, bash attempts to save all lines of a multiple-line command
@@ -43,6 +50,11 @@ shopt -s cmdhist
 # If set, the history list is appended to the file named by the value of the
 # HISTFILE variable when the shell exits, rather than overwriting the file.
 shopt -s histappend
+shopt -s lithist
+
+# Debug history
+echo "$(echo -n ".bash_history"; cat ~/.bash_history | wc; echo -n ".bash_history|uniq"; cat ~/.bash_history | sort | uniq | wc; echo -n "go_history"; go_history | wc; echo -n "go_history|uniq"; go_history | sort | uniq | wc)" | column -t
+
 
 # histreedit
 # If set, and readline is being used, a user is given the opportunity to
@@ -321,14 +333,14 @@ alias db="HOME=$HOME/.dropbox-data/ dropbox"
 # }}}
 # Path {{{ -----------------------------------------------------------
 
-# Add go bins to path
-export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
-
 # pyenv
-export PATH=$PATH:$HOME/.pyenv/bin
-# pyenv from @zaquestion
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if test -x $HOME/.pyenv/bin/pyenv > /dev/null; then
+	export PATH=$PATH:$HOME/.pyenv/bin
+
+	# pyenv from @zaquestion
+	eval "$(pyenv init -)"
+	eval "$(pyenv virtualenv-init -)"
+fi
 
 # add pip bins to path
 export PATH=$PATH:$HOME/.local/bin
