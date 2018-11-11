@@ -36,7 +36,9 @@ Tab:menu-complete
 C-a:possible-completions
 
 # EXAMPLE FOR FUN. Quotes stuff in vi mode
-Control-o:"\ebi\"\eea\""
+#Control-o:"\ebi\"\eea\""
+
+Control-o:edit-and-execute-command
 
 # Add a slash when autocompleting symlink directories
 # http://superuser.com/a/271677

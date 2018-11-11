@@ -5,7 +5,7 @@ setxkbmap -option caps:ctrl_modifier
 setxkbmap -option altwin:alt_win
 
 # Change key repeat delay and rate
-# xset r rate DELAY RATE
+xset r rate 250 100
 
 # more keyboard stuff in here
 #xrandr --dpi 215
@@ -18,6 +18,7 @@ setxkbmap -option altwin:alt_win
 #st -n home -e tmux new-session -c /home/adamr &
 
 xrdb -merge ~/.Xresources
+#exec i3
 
 $GOPATH/bin/gods &
 exec dwm

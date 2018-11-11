@@ -18,10 +18,10 @@ export projects=$HOME/projects
 export GOPATH=$projects/go
 export GOCODE=$GOPATH/src
 
-export EDITOR="vim"
 
 # Add go bins to path
 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
+export EDITOR=$(which vim)
 # }}}
 # History {{{ -----------------------------------------------------------
 
@@ -222,6 +222,13 @@ function google {
         IFS="+"
         export query="${@}"
         w3m http://google.com/search?q="${query}"
+}
+
+# search google with curl
+function cgoogle {
+        IFS="+"
+        export query="${@}"
+        curl http://google.com/search?q="${query}"
 }
 
 # swap a program in with the current terminal in i3
