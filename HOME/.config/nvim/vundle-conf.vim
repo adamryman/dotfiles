@@ -37,7 +37,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-surround'
 
 " Auto-pairing "" {} () [] ''
-Plugin 'Raimondi/delimitMate'
+"Plugin 'Raimondi/delimitMate'
 "Plugin 'jiangmiao/auto-pairs'
 
 "Silly
