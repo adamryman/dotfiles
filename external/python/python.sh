@@ -2,9 +2,14 @@
 
 set -e
 [[ -z $DEBUG ]] || set -x
-sudo apt install -y virtualenv
-cd $HOME/bin
-virtualenv -p $(which python3) venv3
+
+
+# TODO: Copy from @zaquestions's for pyenv
+
+
+#sudo apt install -y virtualenv
+#cd $HOME/bin
+#virtualenv -p $(which python3) venv3
 
 #venv3
 # How do I do this in my venv?

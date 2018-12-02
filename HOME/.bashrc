@@ -287,7 +287,7 @@ alias makel='make 2>&1 | less -XFR'
 # agl passes ag's output to less with color
 alias agg='ag --pager="less -XFR"'
 
-alias cppwd='pwd | tr "\n" " "  | xsel -i -b'
+alias cppwd='pwd | tr "\n" " "  | xclip -i -sel clip'
 
 alias note="vim $(date +%s).md"
 
