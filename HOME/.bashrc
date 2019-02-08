@@ -330,7 +330,7 @@ alias fmtsql='sqlformat --reindent --keywords upper  <(xclip -o -sel clip) | spo
 # web server
 alias httpserver='python -m SimpleHTTPServer'
 
-alias f='vim'
+#alias f='vim'
 alias j='cd'
 
 alias snip="(set -x; xclip -o -sel clip; xclip -o -sel clip | lab snip -g create)"
@@ -400,6 +400,12 @@ export NVM_DIR="/home/adamryman/.nvm"
 # hub is a git wrapper that gives nice github commands
 if which hub > /dev/null; then
 	alias git=hub
+fi
+
+# Make bose noise canceling headphones not pop
+# Johnny-Malizia
+if which amixer 2>&1 > /dev/null; then
+	amixer set "Headphone Mic Boost" 1 > /dev/null 2>&1
 fi
 
 # set keyboard repeat rate and delay
