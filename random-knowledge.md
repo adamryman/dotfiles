@@ -6,9 +6,7 @@ du -dh1 2>/dev/null | sort -hr
 ```
 
 ### Cool emojis / kaomoji
-```
-// gopher!
-\ʕ◔ϖ◔ʔ/
+``` // gopher!  \ʕ◔ϖ◔ʔ/
 
 // shrug
  ¯\_(ツ)_/¯
@@ -122,4 +120,23 @@ Maybe this will help http://blog.robertelder.org/use-vim-inside-a-unix-pipe-like
 ```
 FOOBAR=$(mktemp -d) rm ${FOOBAR}/tmp && godoc github.com/adamryman/kit/dbconn | vim -V0 -c "normal 4ddGI    " -c "saveas ${FOOBAR}/tmp"   -c "wq!" --headless - 2>1 > /dev/null; cat ${FOOBAR}/tmp
 ```
+
+## Colors???
+
+
+for directory / link / executable colors
+
+https://www.howtogeek.com/307899/how-to-change-the-colors-of-directories-and-files-in-the-ls-command/
+
+```
+echo $LS_COLORS
+```
+```
+dircolors
+```
+
+.Xresources?
+building `st` vs `xterm`?
+
+
 
