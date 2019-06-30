@@ -327,9 +327,6 @@ alias fmtj='xclip -o -sel clip | jq . | sponge | xclip -i -sel clip'
 # format sql in the clipboard
 alias fmtsql='sqlformat --reindent --keywords upper  <(xclip -o -sel clip) | sponge | xclip -i -sel clip'
 
-# web server
-alias httpserver='python -m SimpleHTTPServer'
-
 #alias f='vim'
 alias j='cd'
 
