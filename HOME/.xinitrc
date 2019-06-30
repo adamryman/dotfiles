@@ -18,7 +18,7 @@ xset r rate 250 100
 #st -n home -e tmux new-session -c /home/adamr &
 
 xrdb -merge ~/.Xresources
-#exec i3
+exec i3
 
-$GOPATH/bin/gods &
-exec dwm
+#$GOPATH/bin/gods &
+#exec dwm
