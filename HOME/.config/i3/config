@@ -42,7 +42,7 @@ bindsym --release Control+Shift+4 exec $HOME/.config/dotfile_scripts/scrotbox.sh
 bindsym --release Mod1+b exec $HOME/.config/dotfile_scripts/gsc.sh
 
 # Move workspace to the left, will wrap around
-bindsym Mod1+m move workspace to output left
+bindsym Mod1+period move workspace to output left
 
 # start dmenu (a program launcher)
 bindsym Mod1+space exec dmenu_run
