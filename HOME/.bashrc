@@ -332,8 +332,6 @@ alias j='cd'
 
 alias snip="(set -x; xclip -o -sel clip; xclip -o -sel clip | lab snip -g create)"
 
-alias db="HOME=$HOME/.dropbox-data/ dropbox"
-
 # }}}
 # Path {{{ -----------------------------------------------------------
 
