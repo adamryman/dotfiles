@@ -17,6 +17,7 @@ xset r rate 250 100
 #firefox &
 #st -n home -e tmux new-session -c /home/adamr &
 
+export TERM=xterm-256
 xrdb -merge ~/.Xresources
 exec i3
 

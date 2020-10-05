@@ -8,5 +8,5 @@ mkdir -p $HOME/external/neovim
 	make install
 )
 mkdir -p $HOME/bin
-ln -s $HOME/external/neovim/build/bin/nvim $HOME/bin/nvim
-ln -s $HOME/external/neovim/build/bin/nvim $HOME/bin/vim
+ln -sf $HOME/external/neovim/build/bin/nvim $HOME/bin/nvim
+ln -sf $HOME/external/neovim/build/bin/nvim $HOME/bin/vim

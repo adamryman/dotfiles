@@ -170,6 +170,7 @@ keymap :W PRINT
 keymap :o GOTO
 keymap u GOTO
 keymap :e LOAD
+keymap :d SAVE_LINK
 
 # jump
 keymap ESC-C-j SUBMIT

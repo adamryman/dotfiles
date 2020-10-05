@@ -105,10 +105,11 @@ source ~/.docker-compose-completion.bash
 # Colors {{{ -----------------------------------------------------------
 
 # Applications that check the TERM var will see 256 color support
-export TERM="xterm-256color"
+#export TERM="xterm-256color"
 # case "$TERM" in
     # xterm-color) color_prompt=yes;;
 # esac
+#export TERM="xterm"
 
 # This gives colors to tree and ls
 if [ -x /usr/bin/dircolors ]; then
@@ -197,6 +198,11 @@ line_join="\[$yellow\]@\[$reset\]"
 
 export PS1="$user$line_join$host\n$path $cur_branch $cur_repo\n$ "
 
+
+
+#downline='\033[1B'
+#export PS1="$user$line_join$host$downline\n\r$path $cur_branch $cur_repo$downline\n\r$ "
+
 blame() {
 	ag -l $1 | \
 		while read file; do
@@ -263,7 +269,11 @@ function gitnow {
 alias vv='xclip -o -sel clip'
 
 # clear for tmux without removing scrollback
+# \033 = excape
+# [2J = clear
+# [H = go to top
 alias clear="printf '\033[2J\033[H'"
+alias clear="printf '\033[2J\033[H'; tmux refresh-client;"
 
 # some more ls aliases
 alias l='ls -1'

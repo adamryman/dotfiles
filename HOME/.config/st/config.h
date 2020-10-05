@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-char font[] = "Go Mono:pixelsize=16:antialias=true:autohint=true";
+char font[] = "Go Mono:pixelsize=30:antialias=true:autohint=true";
 int borderpx = 2;
 
 /*

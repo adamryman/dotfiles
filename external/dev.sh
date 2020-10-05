@@ -9,4 +9,4 @@ sudo apt install -y xfonts-terminus xclip tmux htop silversearcher-ag \
 
 # gui / X
 sudo apt install -y xserver-xorg-core i3 keynav \
-	redshift scrot arandr feh autocutsel xdotool
+	redshift scrot arandr feh autocutsel xdotool xinit
