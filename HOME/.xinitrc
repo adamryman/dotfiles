@@ -19,6 +19,7 @@ xset r rate 250 100
 
 export TERM=xterm-256
 xrdb -merge ~/.Xresources
+xrandr --dpi 192
 exec i3
 
 #$GOPATH/bin/gods &

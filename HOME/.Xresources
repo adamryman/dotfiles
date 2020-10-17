@@ -102,8 +102,8 @@ URxvt.iso14755: False
 
 ! }}}
 
-Xft.dpi: 96
-!Xft.dpi: 192
+!Xft.dpi: 96
+Xft.dpi: 192
 
 ! vim - Fold on opening for organization
 ! vim:foldmethod=marker:foldlevel=0
