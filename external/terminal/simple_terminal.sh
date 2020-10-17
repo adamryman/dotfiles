@@ -13,6 +13,10 @@ echo "Cloning and building"
 mkdir -p $HOME/external/st
 cd $HOME/external/st
 git clone http://git.suckless.org/st .
+
+# TODO: move to master
+git checkout 1f24bde
+
 make
 
 # config
