@@ -262,6 +262,15 @@ function cdgo {
 function gitnow {
 	GIT_COMMITTER_DATE="`date`" git commit --amend --date "`date`";
 }
+
+function wpkill {
+	PS=$(powershell.exe tasklist | grep "${@}" | awk '{ print $2 }');
+	if [[ $PS == "" ]]; then
+		echo "No process found matching search ${@}";
+	else
+		powershell.exe "taskkill /F /PID $PS";
+	fi
+}
 # }}}
 # Aliases {{{ -----------------------------------------------------------
 
