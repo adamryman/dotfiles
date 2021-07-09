@@ -106,6 +106,13 @@ autocmd BufWinLeave * call clearmatches()
 " .gv files are graphviz files, they will be rendered using dot
 autocmd BufNewFile,BufRead *.gv set filetype=graphviz
 
+" Add template on creating a new bash script.
+if has("autocmd")
+	augroup templates
+		autocmd BufNewFile *sh 0r ~/.config/nvim/templates/skeleton.sh
+	augroup END
+endif
+
 " }}}
 " Leader {{{ --------------------------------------------------------------
 " change my leader to space, using map allows me to see it with a \ in the
@@ -121,7 +128,7 @@ noremap <leader>q :q<CR>
 noremap <leader>w :w<CR>
 
 " Lets see how fast I can add stuff to my vimrc
-map <leader>v :sp $HOME/.vimrc<CR>G
+map <leader>v :sp $HOME/.config/nvim/init.vim<CR>G
 
 " Resource current vimrc and current ftplugin
 " ReSource function {{{ --------------------------------------------------------------
