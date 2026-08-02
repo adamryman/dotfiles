@@ -1,3 +1,4 @@
+#set -x
 # Source settings {{{ -----------------------------------------------------
 source $HOME/.config/dotfiles/enabled.sh
 # }}}
@@ -21,7 +22,10 @@ export GOCODE=$GOPATH/src
 
 # Add go bins to path
 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
-export EDITOR=$(which vim)
+
+alias vim='nvim'
+export EDITOR='nvim'
+export VISUAL='nvim'
 # }}}
 # History {{{ -----------------------------------------------------------
 
@@ -36,9 +40,9 @@ HISTFILESIZE=9999999
 export HISTCONTROL=erasedups
 #export HISTTIMEFORMAT="%s "
 export PROMPT_COMMAND="history -a"
-if which go_history >/dev/null; then
-	export PROMPT_COMMAND="history -a;go_history -r"
-fi
+#if which go_history >/dev/null; then
+	#export PROMPT_COMMAND="history -a;go_history -r"
+#fi
 
 # cmdhist
 # If set, bash attempts to save all lines of a multiple-line command
@@ -53,7 +57,7 @@ shopt -s histappend
 shopt -s lithist
 
 # Debug history
-echo "$(echo -n ".bash_history"; cat ~/.bash_history | wc; echo -n ".bash_history|uniq"; cat ~/.bash_history | sort | uniq | wc; echo -n "go_history"; go_history | wc; echo -n "go_history|uniq"; go_history | sort | uniq | wc)" | column -t
+#echo "$(echo -n ".bash_history"; cat ~/.bash_history | wc; echo -n ".bash_history|uniq"; cat ~/.bash_history | sort | uniq | wc; echo -n "go_history"; go_history | wc; echo -n "go_history|uniq"; go_history | sort | uniq | wc)" | column -t
 
 
 # histreedit
@@ -84,6 +88,7 @@ fi
 # directories  and subdirectories.  If the pattern is followed by a /, only directories and subdirectories match.
 shopt -s globstar
 
+
 # source external
 if [ ! -r ~/.git-completion.bash ]; then
 	echo "downloading .git-completion.bash"
@@ -95,11 +100,6 @@ if [ ! -r ~/.aws-completion.bash ]; then
 	curl -s 'https://raw.githubusercontent.com/aws/aws-cli/master/bin/aws_completer' > ~/.aws-completion.bash
 fi
 complete -c '~/.aws-completion.bash' aws
-
-if [ ! -r ~/.docker-compose-completion.bash ]; then
-	curl -sl "https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/bash/docker-compose" > ~/.docker-compose-completion.bash
-fi
-source ~/.docker-compose-completion.bash
 
 # }}}
 # Colors {{{ -----------------------------------------------------------
@@ -124,6 +124,8 @@ function all_colors {
 	for C in {0..255}; do  tput setab $C;  echo -n "$C "; done
 	echo
 }
+
+alias lsrecent="ls -lt  --full-time | rg -v '^d' | cut -c 80-"
 
 # }}}
 # PS1 {{{ -----------------------------------------------------------
@@ -271,11 +273,34 @@ function wpkill {
 		powershell.exe "taskkill /F /PID $PS";
 	fi
 }
+
+function git_dirs {
+	GIT_DIRS=""
+	for dir in $(ls -d ./*/); do
+		(
+			cd $dir
+			if [[ $(git rev-parse --show-toplevel 2>&1 >/dev/null; echo $?) == "0" ]]; then
+				echo $dir
+			else
+			(
+				echo $dir -------------------------------------
+				cd $dir
+				git_dirs
+			)
+			fi
+		)
+	done
+}
+
+
 # }}}
 # Aliases {{{ -----------------------------------------------------------
 
+alias lsdir='ls -d ./*/'
+
 # clipboard
-alias vv='xclip -o -sel clip'
+alias cout='xclip -o -sel clip'
+alias cin='xclip -i -sel clip'
 
 # clear for tmux without removing scrollback
 # \033 = excape
@@ -314,18 +339,25 @@ alias clean='make clean'
 
 # Gooooo
 # q.Q ->  https://github.com/y0ssar1an/q
-alias qq=". $GOPATH/src/github.com/y0ssar1an/q/q.sh"
+alias qq="tail -F /tmp/q"
 alias rmqq="rm /tmp/q"
 
 alias battlestation="xrandr --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal --output eDP-1 --primary --mode 1920x1080 --pos 2560x360 --rotate normal"
 
+# This has been super useful
+alias bh="cat $HOME/.bash_history"
+
+alias mypvenv="source ~/bin/venv-3/bin/activate"
+
+alias tl='tee $(date "+%s")_testlog | tee testlog'
+
 # something about putting aliases in xargs
-p () {
+function p {
 	echo "$1" | tr ':' ' ' | xargs clput
 }
 
 # something about putting aliases in xargs
-x () {
+function x {
 	# if alias
 	alias $1 2>/dev/null 1>/dev/null && \
 		alias $1 2>/dev/null | cut -d "'" -f 2 \
@@ -350,6 +382,16 @@ alias fmtsql='sqlformat --reindent --keywords upper  <(xclip -o -sel clip) | spo
 alias j='cd'
 
 alias snip="(set -x; xclip -o -sel clip; xclip -o -sel clip | lab snip -g create)"
+
+# https://golang.org/ref/mod#pseudo-versions
+go-pseudo-version () {
+ 	echo v0.0.0-$(TZ=UTC git --no-pager show   --quiet   --abbrev=12   --date='format-local:%Y%m%d%H%M%S'   --format="%cd-%h")
+}
+
+#load python virtual env
+alias ppp='source ~/bin/venv-3/bin/activate'
+
+alias git-go-pseudo-version='echo v0.0.0-$(TZ=UTC date --date="@$(git log -1 --format="%ct")" "+%Y%m%d%H%M%S")-$(git rev-parse --short=12 HEAD)'
 
 # }}}
 # Path {{{ -----------------------------------------------------------
@@ -425,14 +467,24 @@ fi
 # set keyboard repeat rate and delay
 xset r rate 250 100
 
+export PYTHONDONTWRITEBYTECODE=1
+
 # ssh keychain
 # Note, this only adds the ssh key 'id_rsa',
 # I need a solution for multiple keys that may differ on different machines
 if which keychain > /dev/null; then
 	eval `keychain --quiet --eval --agents ssh id_rsa` || true
+	eval `keychain --quiet --eval --agents ssh id_ed25519` || true
+	eval `keychain --quiet --eval --agents ssh GlympseKeyPair.pem` || true
+	eval `keychain --quiet --eval --agents ssh  github_id_ed25519` || true
 fi
 
 # }}}
 gophersay You can do anything
 # Fold on opening for organization
 # vim:foldmethod=marker:foldlevel=0
+source "$HOME/.cargo/env"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Added by LM Studio CLI tool (lms)
+export PATH="$PATH:/home/adamryman/.lmstudio/bin"

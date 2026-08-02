@@ -3,5 +3,7 @@
 set -e
 [[ -z $DEBUG ]] || set -x
 
-# Commit with date updated in all fields
-GIT_COMMITTER_DATE="`date`" && git commit --amend --date "$GIT_COMMITTER_DATE" --no-edit
+# Commit with author, committer, to local configured email and each of their dates set to the current time
+GIT_AUTHOR_EMAIL=$(git config --local user.email || git config --global user.email) \
+GIT_COMMITTER_EMAIL=$(git config --local user.email || git config --global user.email) \
+git commit --amend --no-edit --reset-author --date "$(date)"

@@ -4,7 +4,7 @@ mkdir -p $HOME/external/neovim
 (
 	cd $HOME/external/neovim
 	git clone https://github.com/neovim/neovim .
-	make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/external/neovim/build"
+	make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX="$HOME/external/neovim/build"
 	make install
 )
 mkdir -p $HOME/bin

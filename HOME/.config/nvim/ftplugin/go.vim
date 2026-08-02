@@ -32,3 +32,4 @@ nmap <leader><leader>1  :silent call system('cp --remove-destination /home/adamr
 " Clear goRawString so ` template `  is syntax highlighted. Re-source to undo
 " (<leader>s)
 noremap <leader><leader>; :syntax clear goRawString<CR>
+

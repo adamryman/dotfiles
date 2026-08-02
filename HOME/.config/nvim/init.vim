@@ -1,3 +1,5 @@
+"use venv python
+let g:python3_host_prog="$HOME/bin/venv-3/bin/python"
 
 " Be vim instead of vi
 set nocompatible
@@ -21,7 +23,11 @@ set number
 
 syntax on
 colorscheme monokai
+"hi Pmenu ctermfg=0 ctermbg=226 cterm=NONE guifg=#ff0000 guibg=#ffff00 gui=NONE
+"hi PmenuSel ctermfg=255 ctermbg=196 cterm=NONE guifg=#ffffff guibg=#ff0000 gui=NONE
 "colorscheme simple
+hi FloatBorder ctermfg=226 ctermbg=0 cterm=NONE guifg=#ffff00 guibg=#000000 gui=NONE
+hi NormalFloat ctermfg=231 ctermbg=0 cterm=NONE guifg=#f8f8f2 guibg=#000000 gui=NONE
 
 " }}}
 " Search {{{ --------------------------------------------------------------
@@ -135,7 +141,7 @@ map <leader>v :sp $HOME/.config/nvim/init.vim<CR>G
 " Don't resource this function while it is being used, redefining.
 if !exists("*ReSource")
 	function! ReSource()
-		execute "source $HOME/.vimrc"
+		execute "source $HOME/.config/nvim/init.vim"
 		" Sources the current filetype file again
 		execute "set filetype=" . &filetype
 	endfunction
@@ -146,7 +152,7 @@ map <leader>s :call ReSource()<CR>
 " Allows me to edit the config of any filetype quickly
 " OpenFtpluginFile function {{{ --------------------------------------------------------------
 function! OpenFtpluginFile()
-	execute ":sp $HOME/.vim/ftplugin/" . &filetype . ".vim"
+	execute ":sp $HOME/.config/nvim/ftplugin/" . &filetype . ".vim"
 endfunction
 " }}}
 map <leader>f :call OpenFtpluginFile()<CR>
@@ -180,6 +186,8 @@ map <leader>l :set spell! spelllang=en_us<CR>
 " Clear search
 map <leader><leader><enter> :let @/ = ""<CR>
 
+" Replace tabs with two spaces in the current selection
+xnoremap <leader>a :s/\t/    /g<CR>
 
 " Call xclip to put yank buffer into system clipboard, yank first if in visual
 " mode
@@ -232,8 +240,8 @@ map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 " }}}
 " truss {{{ ----------------------------------------------
 " Set .gotemplate to go file for syntax, but let it fail as it is a template
-au BufNewFile,BufRead *.gotemplate set filetype=go
-au BufNewFile,BufRead *.gotemplate let g:go_fmt_fail_silently = 1
+"au BufNewFile,BufRead *.gotemplate set filetype=go
+"au BufNewFile,BufRead *.gotemplate let g:go_fmt_fail_silently = 1
 " }}}
 " nvim {{{ ----------------------------------------------
 if $DOTFILES_nvim == '1'
@@ -242,8 +250,6 @@ if $DOTFILES_nvim == '1'
 tnoremap <Esc><Esc> <C-\><C-n>
 let g:terminal_scrollback_buffer_size = 2147483647
 
-" Only typed actions casue redraw
-set lazyredraw
 endif " }}}
 "
 " Fold on opening for organization

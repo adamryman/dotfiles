@@ -22,3 +22,6 @@ echo "===== Symlinking Files ====="
 )
 
 set +x; source ~/.bashrc; set -x
+
+# legacy
+ln -s $HOME/.config/nvim/init.vim $HOME/.vimrc

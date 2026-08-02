@@ -139,4 +139,77 @@ dircolors
 building `st` vs `xterm`?
 
 
+## list all directories in current directory
+```
+ls -d "./*/"
+```
+
+## redirect subshells as files
+
+
+```
+cat <(echo 'a') <(echo 'c')
+
+a
+c
+```
+
+
+## jq with env vars
+
+```
+ENVVAR="foo"; echo '{ "hello": "world" }' | jq --arg hello $ENVVAR '.hello |= $hello'
+
+{
+  "hello": "foo"
+}
+```
+
+
+## jq input with lines that are not json still printing
+
+```
+cat <(echo '
+notjson
+"json"
+{"json": "object"}
+brolen
+
+{"foo": "bar"}') | tee /dev/tty | jq -R 'fromjson?'
+```
+
+
+```
+cat <(echo '
+notjson
+"json"
+{"json": "object"}
+brolen
+
+{"foo": "bar"}') |  | jq -R 'fromjson?'
+```
+
+## run another command with json as arg with env var
+
+```
+DT='2021-11-04-22'
+aws lambda invoke --log-type Tail --function-name foo_bar --payload  "$(jq -n -r --arg dt "$DT" ' .dt |= $dt ')" - | jq -r .LogResult | base64 -d
+```
+
+
+## git branches with dates last modified
+
+```
+2023-02-02 15:47:18 -0800 5 days ago      aryman/nomad-backup-2
+2023-02-02 16:07:21 -0800 5 days ago      aryman/2023-02-01-guards
+2023-02-07 09:37:40 -0800 62 minutes ago          aryman/2023-flag_config_updates
+2023-02-07 10:34:10 -0800 5 minutes ago   aryman/nomad-backup-1
+2023-02-07 18:31:22 +0000 8 minutes ago   documentation8
+```
+
+## use seq to page through an api
+
+```
+seq 4 | xargs -I {} curl -s --header "PRIVATE-TOKEN: $GITLAB_ACCESS_TOKEN" "https://gitlab.com/api/v4/projects/123/jobs?scope[]=failed&per_page=100&page={}" | jq '.[] | select(.name == "qa_s-s0") | .id' | xargs -I {} curl -s --header "PRIVATE-TOKEN: $GITLAB_ACCESS_TOKEN" "https://gitlab.com/api/v4/projects/123/jobs/{}/trace" | grep FAIL: | sed 's|(.*)||' | sort | uniq -c | sort -h -r 
+```
 

@@ -1,6 +1,5 @@
 # i3status configuration file.
 # see "man i3status" for documentation.
-
 # It is important that this file is edited as UTF-8.
 # The following line should contain a sharp s:
 # ß
@@ -35,7 +34,11 @@ ethernet eth0 {
 }
 
 battery 0 {
-        format = "%status %percentage %remaining"
+		# very annoying, time remaining was blinking when charged
+        #format = "%status %percentage %remaining"
+        format = "%status %percentage"
+		status_chr = "CHRG"
+		status_full = "FULL"
 }
 
 run_watch DHCP {

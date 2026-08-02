@@ -15,6 +15,7 @@ IS_TMUX_WINDOW="";
 	#xdotool key ctrl+b Escape && sleep 1;
 #fi
 
+echo "$(date +%s)" >> /tmp/tmuxcwdlogs
 
 CURRENT_PANE_PATH="$(tmux list-clients -F '#{client_activity} #{pane_current_path}' | sort | awk '{ print $2 }' | tail -1)";
 
