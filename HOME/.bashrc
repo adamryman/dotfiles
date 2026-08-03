@@ -470,13 +470,17 @@ xset r rate 250 100
 export PYTHONDONTWRITEBYTECODE=1
 
 # ssh keychain
-# Note, this only adds the ssh key 'id_rsa',
-# I need a solution for multiple keys that may differ on different machines
-if which keychain > /dev/null; then
-	eval `keychain --quiet --eval --agents ssh id_rsa` || true
-	eval `keychain --quiet --eval --agents ssh id_ed25519` || true
-	eval `keychain --quiet --eval --agents ssh GlympseKeyPair.pem` || true
-	eval `keychain --quiet --eval --agents ssh  github_id_ed25519` || true
+if command -v keychain > /dev/null 2>&1; then
+	for key in \
+		"$HOME/.ssh/id_rsa" \
+		"$HOME/.ssh/id_ed25519" \
+		"$HOME/.ssh/GlympseKeyPair.pem" \
+		"$HOME/.ssh/github_id_ed25519"
+	do
+		if [ -f "$key" ]; then
+			eval "$(keychain --quiet --eval --agents ssh "$key")" || true
+		fi
+	done
 fi
 
 # }}}
@@ -487,4 +491,6 @@ source "$HOME/.cargo/env"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Added by LM Studio CLI tool (lms)
-export PATH="$PATH:/home/adamryman/.lmstudio/bin"
+if [ -d "/home/adamryman/.lmstudio/bin" ]; then
+    export PATH="$PATH:/home/adamryman/.lmstudio/bin"
+fi

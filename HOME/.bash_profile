@@ -42,5 +42,10 @@ fi
 source "$HOME/.cargo/env"
 
 # Added by LM Studio CLI tool (lms)
-export PATH="$PATH:/home/adamryman/.lmstudio/bin"
-. "/home/adamryman/.local/share/bob/env/env.sh"
+if [ -d "/home/adamryman/.lmstudio/bin" ]; then
+    export PATH="$PATH:/home/adamryman/.lmstudio/bin"
+fi
+
+if [ -f "/home/adamryman/.local/share/bob/env/env.sh" ]; then
+    . "/home/adamryman/.local/share/bob/env/env.sh"
+fi
